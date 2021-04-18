@@ -1,0 +1,265 @@
+{% extends 'Emptynavbar2.html'%}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+	{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="{% static 'style.css'%}">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style type="text/css">
+  	@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro")
+body{
+    font-family: 'Crimson Pro', serif;
+}
+*{
+margin:0;
+padding:0;
+list-style:none;
+text-decoration: none;
+}
+.sidebar{
+    position:fixed;
+    left:-250px;
+    width:250px;
+    height:100%;
+    background:#042331;
+    transition:all .5s ease;
+}
+.sidebar header{
+    font-size:22px;
+    color:white;
+    text-align:center;
+    line-height:70px;
+    background:#063146;
+
+}
+
+.sidebar ul a{
+    display:block;
+    height:100%;
+    width:100%;
+    line-height:65px;
+    font-size:20px;
+    color:white;
+    padding-left:40px;
+    box-sizing:border-box;
+    border-top:1px solid rgba(255,255,255,.1);
+    /* border-bottom:1px solid white; */
+    transition:.6s;
+    
+}
+
+ul li:hover a{
+    padding-left:50px;
+}
+
+.sidebar ul a i{
+    margin-right:16px;
+}
+#check{
+    display:none;
+}
+label #btn,label #cancel{
+    position:absolute;
+    cursor:pointer;
+    background:#042331;
+    border-radius: 3px;
+}
+label #btn{
+    left:40px;
+    top:150px;
+    font-size:35px;
+    color:white;
+    padding:6px 12px;
+    transition:all .5s;
+}
+label #cancel{
+    z-index:1111;
+    left:-195px;
+    top:120px;
+    font-size:30px;
+    color:#f02954;
+    padding:4px 9px;
+    trasition: all .5s ease;
+}
+
+#check:checked ~ .sidebar{
+    left:0;
+
+}
+#check:checked ~ label #btn{
+    left:250px;
+    opacity:0;
+    pointer-events:none;
+
+}
+#check:checked ~ label #cancel{
+    left:195px;
+    
+
+}
+#check:checked ~ section{
+margin-left:250px;
+}
+.section{
+background: url("{% static 'assets/img/slide/slide-2.jpg'%}");
+background-size: cover;
+background-position:center;
+height:100vh;
+transition:all .5s;
+}
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro")
+body{
+    font-family: 'Crimson Pro', serif;
+}
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+    text-decoration: none;
+    }
+    .sidebar{
+        position:fixed;
+        width:250px;
+        height:100%;
+        background:rgba(63, 187, 192, 0.5);
+		margin-top: 100px;
+    }
+    .sidebar header{
+        font-size:22px;
+        color:white;
+        text-align:center;
+        line-height:70px;
+        background:#3fbbc0;
+    
+    }
+    .sidebar ul a{
+        display:block;
+        height:100%;
+        width:100%;
+        line-height:65px;
+        font-size:20px;
+        color:white;
+        padding-left:40px;
+        box-sizing:border-box;
+        border-top:1px solid rgba(255,255,255,.1);
+        /* border-bottom:1px solid white; */
+        transition:.6s;
+        
+    }
+    ul li:hover a{
+        padding-left:50px;
+		color:crimson;
+    }
+    .section{
+    background: url(https://wallpapercave.com/wp/wp1848586.jpg);
+	no-repeat;
+			background-size:cover;
+    }
+
+
+    .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+        position: relative;
+        top:100px;
+        left:350px;
+      }
+      
+      /* Remove extra left and right margins, due to padding in columns */
+      .row {margin: 0 -5px;}
+      
+      /* Clear floats after the columns */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      
+      /* Style the counter cards */
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+        padding: 16px;
+        text-align: center;
+        background-color: #f1f1f1;
+        transition: .5s ;
+
+
+      }
+      
+      /* Responsive columns - one column layout (vertical) on small screens */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
+      .card:hover{
+        transform: scale(1.1);
+        transition: .5s ;
+        
+      }
+	 .mani li a{
+		  font-size:14px;
+		  color:floralwhite;
+	  }
+  </style>
+  		<!-- {% if messages %}
+		  {% for message in messages %}
+		   {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+  
+		  {% endfor %}
+  
+	  {% endif %} -->
+</head>
+
+<body class="section">
+  <input type="checkbox" id = "check">
+  <label for="check">
+    <i class="fa fa-bars" id="btn"></i>
+    <i class="fa fa-times" id="cancel"></i>
+
+
+  </label>
+  <div class="sidebar">
+    <header>Dashboard</header>
+    <ul class="mani">
+		<!-- {%if request.user.is_staff %} -->
+      <!-- <li><a href="{% url 'Home'%}"><i class="fa fa-home"> HOME</i></a></li> -->
+	  <!-- {% endif %} -->
+	  {%if request.user.is_staff%}
+	  <!-- <li><a href="{% url 'Read_Appointment'%}"><i class="bi bi-book-fill">Read_Appointment</i></a></li> -->
+	  <!-- <li><a href="{% url 'Actions_Appointment'%}"> <i class="bi bi-book-fill">CRUD_Appointment</i></a></li>
+	  <li><a href="{% url 'Ensure'%}"> <i class="fa fa fa-user">ENSURE </i></a></li> -->
+	<!-- <li><a href="{% url 'Admin_logout'%}"><i class="fa fa-user-plus">LOGOUT</i></a></li> -->
+	<li><a href="{% url 'Add_Doctor'%}"><i class="fa fa-user-plus">New Doctor Added</i></a></li>
+	<li><a href="{% url 'Read_doctors'%}"><i class="fa fa-user-plus">Doctors Details</i></a></li>
+	<li><a href="{% url 'Add_Nurse'%}"><i class="fa fa-user-plus">New Nurse</i></a></li>
+	<li><a href="{% url 'Read_Nurse'%}"><i class="fa fa-user-plus">Nurses Details</i></a></li>
+	<li><a href="{% url 'Add_Compounder'%}"><i class="fa fa-user-plus">New Compounder</i></a></li>
+	<li><a href="{% url 'Read_Compounder'%}"><i class="fa fa-user-plus">Compounder Details</i></a></li>
+      <!-- <li><a href="#"><i class="fa fa fa-user">PATIENTS_INFO</i></a></li> -->
+		{% else%}
+
+	  <li><a href="{% url 'login'%}"><i class="fa fa fa-user">Admin Login</i></a></li>
+
+      {% endif%}
+      
+
+    </ul>
+  </div>
+</body>
+
+</html>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	
+	
+
+{% include 'footer.html' %}
+{% endblock%}

@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+{% load static%}
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Utkarsh</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.jpg' %}" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+  
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+ 
+  <style>
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center
+}
+
+.rating>input {
+    display: none
+}
+
+.rating>label {
+    position: relative;
+    width: 1em;
+    font-size: 4vw;
+    color: #002fff;
+    cursor: pointer
+}
+
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+    opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4
+}
+
+
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
+}
+
+
+  </style>
+
+  
+</head>
+
+<body>
+	 <!-- {% block content %}
+
+	{% endblock %} 
+	 -->
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
+      <div class="align-items-center d-none d-md-flex">
+        <i class="bi bi-clock"></i> Monday - Saturday, 8AM to 10PM
+      </div>
+      <div class="d-flex align-items-center">
+        <i class="bi bi-phone"></i> Call us now +91 9472843202
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <a href="#" class="logo me-auto"><img src="{% static 'assets/img/logo2.png' %}" alt=""></a>
+     
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+			
+          <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
+
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#departments">Departments</a></li>
+		  <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+	
+          <li><a class="nav-link scrollto" href="{% url 'Admin'%}">Admin</a></li>
+
+
+				<li><a class="nav-link scrollto" href="{% url 'Read_doctors'%}">Doctors</a></li>
+				
+         
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+	  <!-- .navbar -->
+	  
+      <a href="{% url 'Appointment'%}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
+
+    </div>
+  </header>
+  <!-- End Header -->
+  
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+	<div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+	  <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+	  <div class="carousel-inner" role="listbox">
+
+		<!-- Slide 1 -->
+		<div class="carousel-item active" style="background-image: url(https://lawgsp.com/wp-content/uploads/2020/04/doctor-doing-a-liposuction-3844558-scaled.jpg)">
+		  <div class="container" style="background-color: rgba(0,0,0,0.5);">
+			<h2 class="glow" style="color:wheat;"> <span>सर्वश्रेष्ठ एवं सर्वोत्तम चिकित्सा उत्कर्ष हॉस्पिटल में आपका स्वागत है।</span></h2>
+			<p style="color: white;">अस्पताल, एक ऐसी संस्था जो रोग के निदान के लिए निर्मित, स्टाफ और सुसज्जित है उपचार के लिए बीमार और घायलों की चिकित्सा और शल्य चिकित्सा दोनों और इस प्रक्रिया के दौरान उनके आवास के लिए। आधुनिक अस्पताल भी अक्सर जांच और शिक्षण के लिए एक केंद्र के रूप में कार्य करता है।</p>
+			<a href="#about" class="btn-get-started scrollto">Read More</a>
+		  </div>
+		</div>
+
+		<!-- Slide 2 -->
+		<div class="carousel-item" style="background-image: url(https://odszkodowanieodstomatologa.pl/wp-content/uploads/2017/05/dentysta-01.jpg)">
+		  <div class="container" style="background-color: rgba(0,0,0,0.5);">
+			<h2  class ="glow" style="color: bisque;">Consulation With <span> Specialist Doctors at Utkarsh Hospital Gopalganj , Bihar</span></h2>
+			<p style="color: white;">Hospital, an institution that is built, staffed, and equipped for the diagnosis of disease; for the treatment, both medical and surgical, of the sick and the injured; and for their housing during this process. The modern hospital also often serves as a centre for investigation and for teaching..</p>
+			<a href="#about" class="btn-get-started scrollto">Read More</a>
+		  </div>
+		</div>
+
+		<!-- Slide 3 -->
+		<div class="carousel-item" style="background-image: url(https://www.matherhospital.org/wp-content/uploads/2020/05/Surgery-1000x500.jpg)">
+		  <div class="container" style="background-color: rgba(0,0,0,0.5);">
+			<h2  class ="glow" style="color: wheat;">Welcome to <span>Utkarsh Hospital</span></h2>
+			<p style="color: white;">Hospital, an institution that is built, staffed, and equipped for the diagnosis of disease; for the treatment, both medical and surgical, of the sick and the injured; and for their housing during this process. The modern hospital also often serves as a centre for investigation and for teaching..</p>
+			<a href="#about" class="btn-get-started scrollto">Read More</a>
+		  </div>
+		</div>
+
+	  </div>
+
+	  <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+	  </a>
+
+	  <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+		<span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+	  </a>
+
+	</div>
+  </section><!-- End Hero -->
+
+
+  <!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Featured Services Section ======= -->
+    <section id="featured-services" class="featured-services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="fas fa-heartbeat"></i></div>
+              <h4 class="title"><a href="">Emergency</a></h4>
+              <p>Treat acute conditions,injury and illness</p>
+              <p>Most common issues:injuries,chest pain</p>
+              <p>24 X 7 coverage and availability.</p>
+              <p>Equipment,Staff.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+			<div class="icon"><i class="fas fa-wheelchair"></i></div>	
+              <!-- <div class="icon"><i class="fas fa-pills"></i></div> -->
+              <h4 class="title"><a href="">Surgery</a></h4>
+              <p>Operating room with sterile conditions</p>
+              <p>Equipment,Staff</p>
+              <p>Continues monitoring and treatment</p>
+              <p>Care for severe and life theatening illnesses</p>
+			  
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="fas fa-thermometer"></i></div>
+              <h4 class="title"><a href="">Other Services & Departments</a></h4>
+              <p >Radiology example X-Rayes,MRI</p>
+              <p >Laboratory</p>
+              <p >Hospital based Outpatient Clinic</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+              <div class="icon"><i class="fas fa-dna"></i></div>
+              <h4 class="title"><a href="">Common Continues Hospital Treat</a></h4>
+              <p>Circulatory system 21 % </p>
+              <p>Musculoskeletal System 13% </p>
+              <p>Digestive System 11% </p>
+              <p>Nervous System 8% </p>
+              <p>Kidneys 8% </p>
+              <p>Infections 7% </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section> 
+	<!-- End Featured Services Section -->
+	<!-- ======= Cta Section ======= -->
+    <section id="cta" class="cta">
+		<div class="container" data-aos="zoom-in">
+  
+		  <div class="text-center">
+			<h3>In an emergency? Need help now?</h3>
+			<p> An accident is any unforeseen or unplanned circumstance that is a mishap and has a negative outcome. While most minor accidents are not life threatening, a lot of major accidents happen around us every day. Most common types of accidents involve automobile and road accidents, sports related accidents, fall injuries or fire accidents. It is important to understand the emergency services and emergency management required during an accident, for the victim. Emergency Medical Services (EMS) aims at providing acute medical care to the victim, either in the emergency room or outside the hospital.</p>
+			<a class="cta-btn scrollto" href="{% url 'Appointment'%}">Make an Make an Appointment</a>
+		  </div>
+  
+		</div>
+	  </section><!-- End Cta Section -->
+  
+	  <!-- ======= About Us Section ======= -->
+	  <section id="about" class="about">
+		<div class="container" data-aos="fade-up">
+  
+		  <div class="section-title">
+			<h2>About Us</h2>
+			<p>Whether a patient is coming in for a routine or a specialized procedure.</p>
+		  </div>
+  
+		  <div class="row">
+			<div class="col-lg-6" data-aos="fade-right">
+			  <img src="https://www.joonsquare.com/usermanage/image/business/utkarsh-hospital-kheda-6118/utkarsh-hospital-kheda-utkarsh-hospital-04.jpg" class="img-fluid" alt="">
+			</div>
+			<div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+				<h3>Utkarsh Hospital Group has over two decades of experience in the healthcare sector, and is known for providing quality healthcare and valuable experience to all domestic and international patients.</h3>
+				<p class="font-italic">
+					they will always benefit from Strong’s unique ability to quickly implement the newest discoveries and advancements in medicine. A few of Strong’s many highly specialized services include.
+				</p>
+			  <ul>
+				<li><i class="bi bi-check-circle"></i>Organ Transplant
+				</li>
+				<li><i class="bi bi-check-circle"></i> Neonatal Intensive Care Unit.</li>
+				<li><i class="bi bi-check-circle"></i> Comprehensive Neuromedicine.</li>
+				<li><i class="bi bi-check-circle"></i> Complex Cardiology.</li>
+			  </ul>
+			  <p>
+				A condition is never isolated. 
+				Patients always have a team of people and specialists taking care of them, 
+				all supported with the highest technology. That technology also applies to communication.
+				 All of a patient’s medical information is consolidated into a single medical record thus eliminating potential for miscommunication.
+			  </p>
+			</div>
+		  </div>
+  
+		</div>
+	  </section><!-- End About Us Section -->
+  
+	  <!-- ======= Counts Section ======= -->
+	  <section id="counts" class="counts">
+		<div class="container" data-aos="fade-up">
+  
+		  <div class="row no-gutters">
+  
+			<div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+			  <div class="count-box">
+				<i class="fas fa-user-md"></i>
+				<span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>
+  
+				<p><strong>Doctors</strong></p>
+				<a href="#">Find out more &raquo;</a>
+			  </div>
+			</div>
+  
+			<div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+			  <div class="count-box">
+				<i class="far fa-hospital"></i>
+				<span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
+				<p><strong>Departments</strong> </p>
+				<a href="#">Find out more &raquo;</a>
+			  </div>
+			</div>
+  
+			<div class="col-lg-4 col-md-6 d-md-flex align-items-md-stretch">
+			  <div class="count-box">
+				<i class="fas fa-flask"></i>
+				<span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
+				<p><strong>Research Lab</strong</p>
+				<a href="#">Find out more &raquo;</a>
+			  </div>
+			</div>
+  
+			<!-- <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+			  <div class="count-box">
+				<i class="fas fa-award"></i>
+				<span data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="1" class="purecounter"></span>
+				<p><strong>Awards</strong> </p>
+				<a href="#">Find out more &raquo;</a>
+			  </div>
+			</div> -->
+  
+		  <!-- </div> -->
+  
+		<!-- </div> -->
+	  </section>
+  
+	  <!-- ======= Features Section ======= -->
+	  <section id="features" class="features">
+		<div class="container" data-aos="fade-up">
+  
+		  <div class="row">
+			<div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right">
+			  <div class="icon-box mt-5 mt-lg-0">
+				<i class="bx bx-receipt"></i>
+				<h6>Lab Management</h6>
+				<p>Transparency in terms of pathology management was a farfetched process unless technology dropped in to save us! This integrated Lab Management module records and analyses all your pathological requirements..</p>
+			  </div>
+			  <div class="icon-box mt-5">
+				<i class="bx bx-cube-alt"></i>
+				<h6>Radiology Management</h6>
+				<p>The internal system is integrated to ensure radiologists are booked automatically when a doctor refers you to book your radiologists appointment. Centralized reporting tools are available for CT scan, ultrasound, X-rays, </p>
+			  </div>
+			  <div class="icon-box mt-5">
+				<i class="bx bx-images"></i>
+				<h6>EMERGENCY PRACTICE ENGAGEMENT</h6>
+				<p>Emergency represents one of the most important aspects of the Healthcare Industry. This feature is focused exclusively on delivering emergency medical practices. Practice engagement is the most vital part of this emergency relationsh.</p>
+			  </div>
+			  <div class="icon-box mt-5">
+				<i class="bx bx-shield"></i>
+				<h6>Physician/Nurse Management</h6>
+				<p>Managing your nurse and doctors has never been this easy. The module can help you understand the availability of the physicians and nurses. </p>
+			  </div>
+			</div>
+			<div class="image col-lg-6 order-1 order-lg-2" style='background-image: url("{% static 'assets/img/features.jpg'%}");' data-aos="zoom-in"></div>
+		  </div>
+  
+  
+		</div>
+  
+	  </section>
+   
+	  <!-- End Features Section -->
+  
+	  <!-- ======= Services Section ======= -->
+	  <section id="services" class="services services">
+		<div class="container" data-aos="fade-up">
+  
+		  <div class="section-title">
+			<h2>Services</h2>
+			<p>Hospital Services are the collective activities of all departments and all personnel of a hospital, which end-up in satisfactory patients care. Classification of hospital services have been proposed in diversified definitions, which do not completely agree with each other.</p>
+		  </div>
+  
+		  <div class="row">
+			<div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
+			  <div class="icon"><i class="fas fa-heartbeat"></i></div>
+			  <h4 class="title"><a href="">Emergency</a></h4>
+              <p>Treat acute conditions,injury and illness</p>
+              <p>Most common issues:injuries,chest pain</p>
+              <p>24 X 7 coverage and availability.</p>
+              <p>Equipment,Staff.</p>
+
+			  
+			</div>
+			<div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
+			  <div class="icon"><i class="fas fa-pills"></i></div>
+			  <h4 class="title"><a href="">Observation Care</a></h4>
+			  <p>Patients are observation on an outpatient basis inside the hospital.</p>
+			  <p>Typically less then two days.</p>
+			  <p>Billed and paid under Outpatient methodology.</p>
+			</div>
+			<div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
+			  <div class="icon"><i class="fas fa-hospital-user"></i></div>
+			  <h4 class="title"><a href="">Other Services & Departments</a></h4>
+              <p >Radiology example X-Rayes,MRI</p>
+              <p >Laboratory</p>
+              <p >Hospital based Outpatient Clinic</p>
+			</div>
+			<div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
+			  <div class="icon"><i class="fas fa-dna"></i></div>
+			  <h4 class="title"><a href="">Common Continues Hospital Treat</a></h4>
+              <p>Circulatory system 21 % </p>
+              <p>Musculoskeletal System 13% </p>
+              <p>Digestive System 11% </p>
+              <p>Nervous System 8% </p>
+              <p>Kidneys 8% </p>
+              <p>Infections 7% </p>
+			</div>
+			<div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
+			  <div class="icon"><i class="fas fa-wheelchair"></i></div>
+			  <h4 class="title"><a href="">Surgery</a></h4>
+			  <p>Operating room with sterile conditions</p>
+              <p>Equipment,Staff</p>
+              <p>Continues monitoring and treatment</p>
+              <p>Care for severe and life theatening illnesses</p>
+			</div>
+			<div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
+			  <div class="icon"><i class="fas fa-notes-medical"></i></div>
+			  <h4 class="title"><a href="">pharmacy</a></h4>
+			  <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+			</div>
+		  </div>
+  
+		</div>
+	  </section><!-- End Services Section -->
+ <!-- ======= Departments Section ======= -->
+ <section id="departments" class="departments">
+	<div class="container" data-aos="fade-up">
+
+	  <div class="section-title">
+		<h2>Departments</h2>
+		<p>Doctors are a boon to the mankind and we must respect their profession. They are life saviors and treat many bodily illnesses. We cannot imagine our lives without them because when we fall ill or have any bodily ailments, we go up to them.</p>
+	  </div>
+
+	  <div class="row" data-aos="fade-up" data-aos-delay="100">
+		<div class="col-lg-4 mb-5 mb-lg-0">
+		  <ul class="nav nav-tabs flex-column">
+			<li class="nav-item">
+			  <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
+				<h4>Ophthalmologist – आखों के रोगों का डाक्टर</h4>
+				<p>Eye doctors use a wide variety of tests and procedures to examine your eyes..</p>
+			  </a>
+			</li>
+			<li class="nav-item mt-2">
+			  <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
+				<h4>Psychiatrist– मानसिक रोगों का विशेषज्ञ – मनोचिकित्सक
+				</h4>
+				<p>The medical speciality concerned with the diagnosis, prevention,</p>
+			  </a>
+			</li>
+
+
+
+
+
+			<li class="nav-item mt-2">
+			  <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
+				<h4>Paediatrician – केवल शिशुओं और छोटे बच्चो का डाक्टर</h4>
+				<p>Paediatricians know a lot about the many different conditions and illnesses that can affect children’s health, welfare, behaviour and learning. They also understand how different illnesses and conditions relate to each other.
+					</p>
+			  </a>
+			</li>
+			<li class="nav-item mt-2">
+			  <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
+				<h4>Gynaecologist – स्त्री रोगों का विशेषज्ञ</h4>
+				<p>They diagnose and treat issues related to the female reproductive tract. This includes the uterus, fallopian tubes, and ovaries and breasts.
+				</p>
+			  </a>
+			</li>
+		  </ul>
+		</div>
+		<div class="col-lg-8">
+		  <div class="tab-content">
+			<div class="tab-pane active show" id="tab-1">
+			  <h3>Ophthalmologist – आखों के रोगों का डाक्टर</h3>
+			  <p class="font-italic"><h2>Refraction(अपवर्तन)</h2>
+				This is the test that your eye doctor uses to determine your eyeglass prescription.
+				
+				During a manual refraction, your doctor puts an instrument called a phoropter in front of your eyes and shows you a series of lens choices. He or she will then ask you which of the two lenses in each choice looks clearer.</p>
+			  <img src="https://images.ctfassets.net/u4vv676b8z52/4nzMjbwhSW3d1wnZOb9Idz/d1789071acbd1a5f88ce72d4771ca4b1/exam-phoropter-330x220_2x.jpg_h_250?fm=jpg&q=80 "alt="" class="img-fluid">
+
+			  <p>the best lens power will be fine-tuned until the eyeglass prescription that gives you the clearest vision is determined.</p>
+			  
+			
+			  		<br>
+					<br>
+					<br>
+					<br>
+					<br>
+			
+
+			  
+			  <img src="https://images.ctfassets.net/u4vv676b8z52/76FvKvbx7iaXWBl189yPvR/b90ab8af1786cc59f9df2e58f6f75eaf/exam-slit-lamp-330x220_2x.jpg_h_250?fm=jpg&q=80"alt="" class="img-fluid">
+			  <p class="font-italic"><h2>Slit lamp </h2></p>
+			  <p>During the slit lamp , you will be asked to place your forehead and chin securely against the rests on the front of the instrument and your doctor will begin by examining the structures of the front of your eyes — including your eyelids, cornea, conjunctiva, iris, and lens.</p>
+
+			
+			</div>
+
+			<div class="tab-pane" id="tab-2">
+			  <h3>Psychiatrist– मानसिक रोगों का विशेषज्ञ – मनोचिकित्सक
+			</h3>
+			  <p class="font-italic">The medical speciality concerned with the diagnosis, prevention, and treatment of mental disorders is known as psychiatry. These disorders may be divided into mental illnesses, personality disorders, and severe learning disabilities. A psychiatrist is a doctor who specialises in psychiatry.</p>
+			  <img src="https://static.toiimg.com/thumb/75868585.cms?width=804&height=603&resizemode=4&imgsize=141308" alt="" class="img-fluid">
+			  <p> <u>You can consult a Psychiatrist if</u>
+				  <br>
+					You are suffering from depression, schizophrenia, and bipolar disorder
+					<br>
+					You have anxiety, stress, alcohol addiction, etc.</p>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+			
+					<img src="https://www.abeergroup.com/ksa/images/services/Description/DivisionofPsychiatry_41.jpg"alt="" class="img-fluid">
+					<p class="font-italic"><h2>some key </h2></p>
+					<p>Everyone goes through tough times. But sometimes, the negative way someone feels inside -- depressed, anxious, wanting to avoid people, having trouble thinking -- may be more than the ups and downs most people feel now and then. If symptoms like these start to get in the way of your life, or that of a loved one, it’s important to take action. Research shows that getting help early can prevent symptoms from getting worse and make a full recovery more likely..</p>
+				
+				
+
+			</div>
+
+
+
+			<!-- <div class="tab-pane" id="tab-2">
+				<h3>Dermatologist – चर्म रोगों का विशेषज्ञ
+			  </h3>
+				<p class="font-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
+				<img src="{% static 'assets/img/departments-2.jpg' %}" alt="" class="img-fluid">
+				<p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+			  </div> -->
+
+
+			<div class="tab-pane" id="tab-3">
+			  <h3>Paediatrician – केवल शिशुओं और छोटे बच्चो का डाक्टर</h3>
+			  <p class="font-italic">A paediatrician is a medical doctor with special training and skills in the conditions and illnesses that affect the health, growth and development of babies, children and teenagers.</p>
+			  <img src="https://media.gettyimages.com/photos/medical-doctor-wear-mask-and-examining-little-boy-in-clinic-picture-id1205445873?b=1&k=6&m=1205445873&s=170667a&w=0&h=xPkTV9YkuvQVbbBOSTZEYfqZPpk10BlzuoaR6mjYr9s=" alt="" class="img-fluid">
+			  <p>Paediatricians know a lot about the many different conditions and illnesses that can affect children’s health, welfare, behaviour and learning. They also understand how different illnesses and conditions relate to each other.
+
+				Some paediatricians specialise in areas like neonatology (treatment of newborn babies), cardiology (heart problems) or development and behaviour.</p>
+
+			  <br>
+			  <br>
+			  <br>
+			  <br>
+			  
+	  
+			  <img src="https://us.123rf.com/450wm/oksun70/oksun701602/oksun70160200024/53477119-pediatric-doctor-woman-examining-heartbeat-of-child-with-stethoscope.jpg?ver=6"alt="" class="img-fluid">
+			  <p class="font-italic"><h2>Some Key </h2></p>
+			  <p>Paediatricians specialise in the health, growth and development of babies, children and teenagers.
+				Paediatricians know a lot about the many different conditions that can affect children’s health, welfare, behaviour and learning..</p>
+		  
+
+
+			</div>
+
+			
+			
+			<div class="tab-pane" id="tab-4">
+			  <h3>Gynaecologist – स्त्री रोगों का विशेषज्ञ</h3>
+			  <p class="font-italic">Your gynecologists will exam your reproductive system, both internally and externally. They’ll examine your breasts and check for any lumps or cysts.</p>
+			  <img src="https://thumbs.dreamstime.com/b/young-pregnant-women-having-appointment-gynecologist-office-pregnant-woman-having-appointment-gynecologist-office-118218487.jpg" alt="" class="img-fluid">
+			  <br>
+			  <p>A gynecologist is a doctor who specializes in female reproductive health. They diagnose and treat issues related to the female reproductive tract. This includes the uterus, fallopian tubes, and ovaries and breasts.
+
+				Anyone with female organs may see a gynecologist.  80% of those who see one are between 15 to 45 years old. </p>
+			
+			  <br>
+			  <br>
+			  
+			
+			  
+	  
+			  <img src="https://vasundharahospital.com/wp-content/uploads/2019/06/Gynecology-Obstetrics.jpg"alt="" class="img-fluid">
+			  <!-- <p class="font-italic"><h2>Slit lamp </h2></p> -->
+			  <br>
+			  <p>If your gynecologist diagnoses you with a medical condition, they may give you treatment or refer you to a specialist. Depending on the problem, your treatments may involve medication, surgery, or a wait-and-see approach. </p>
+			  
+		    
+
+
+
+
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+	</div>
+  </section><!-- End Departments Section -->
+ <!-- ======= Gallery Section ======= -->
+ <section id="gallery" class="gallery">
+	<div class="container" data-aos="fade-up">
+
+	  <div class="section-title">
+		<h2>Gallery</h2>
+		<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+	  </div>
+
+	  <div class="gallery-slider swiper-container">
+		<div class="swiper-wrapper align-items-center">
+		  <div class="swiper-slide"><a class="gallery-lightbox" href="assets/img/gallery/gallery-1.jpg"><img src="{% static 'assets/img/gallery/gallery-1.jpg' %}" class="img-fluid" alt=""></a></div>
+		  <div class="swiper-slide"><a class="gallery-lightbox" href="assets/img/gallery/gallery-2.jpg"><img src="{% static 'assets/img/gallery/gallery-2.jpg' %}" class="img-fluid" alt=""></a></div>
+		  <div class="swiper-slide"><a class="gallery-lightbox" href="assets/img/gallery/gallery-3.jpg"><img src="{% static 'assets/img/gallery/gallery-3.jpg' %}" class="img-fluid" alt=""></a></div>
+		  <div class="swiper-slide"><a class="gallery-lightbox" href="assets/img/gallery/gallery-4.jpg"><img src="{% static 'assets/img/gallery/gallery-4.jpg' %}" class="img-fluid" alt=""></a></div>
+		  <div class="swiper-slide"><a class="gallery-lightbox" href="assets/img/gallery/gallery-5.jpg"><img src="{% static 'assets/img/gallery/gallery-5.jpg' %}" class="img-fluid" alt=""></a></div>
+		  <div class="swiper-slide"><a class="gallery-lightbox" href="assets/img/gallery/gallery-6.jpg"><img src="{% static 'assets/img/gallery/gallery-6.jpg' %}" class="img-fluid" alt=""></a></div>
+		  <div class="swiper-slide"><a class="gallery-lightbox" href="assets/img/gallery/gallery-7.jpg"><img src="{% static 'assets/img/gallery/gallery-7.jpg' %}" class="img-fluid" alt=""></a></div>
+		  <div class="swiper-slide"><a class="gallery-lightbox" href="assets/img/gallery/gallery-8.jpg"><img src="{% static 'assets/img/gallery/gallery-8.jpg' %}" class="img-fluid" alt=""></a></div>
+		</div>
+		<div class="swiper-pagination"></div>
+	  </div>
+
+	</div>
+  </section> 
+  <!-- End Gallery Section -->
+  <!-- ======= Doctors Section ======= -->
+  <section id="doctors" class="doctors section-bg">
+	<div class="container" data-aos="fade-up">
+
+	  <div class="section-title">
+		<h2>Doctors</h2>
+		<p>Doctors are a boon to the mankind and we must respect their profession. They are life saviors and treat many bodily illnesses. We cannot imagine our lives without them because when we fall ill or have any bodily ailments, we go up to them</p>
+	  </div>
+
+	  <div class="row">
+
+		<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+		  <div class="member" data-aos="fade-up" data-aos-delay="100">
+			<div class="member-img">
+			  <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-fluid" alt="">
+			  <div class="social">
+				<a href=""><i class="bi bi-twitter"></i></a>
+				<a href=""><i class="bi bi-facebook"></i></a>
+				<a href=""><i class="bi bi-instagram"></i></a>
+				<!-- <a href=""><i class="bi bi-linkedin"></i></a> -->
+			  </div>
+			</div>
+			<div class="member-info">
+			  <h4>Dr. Ashok Kumar</h4>
+			   <h6>Specilization : Orthodontist – दाँतों का विशेषज्ञ</h6>
+			<p>	Educational_Qualifications : Masters of Surgery(MS)  </p>
+				  
+				  <p>Experience : 3 years</p>
+				  <p>Language:English, हिंदी</p>
+				  <p>Fees :<strong>₹</strong> 1000</p>
+				  <p>Opd_Shift: Friday(10am to 5pm)</p>
+				  <!-- <p>Locality:Near Sump House , Patna</p> -->
+				  <!-- <a href="#" class="btn btn-success">Available</a> -->
+
+			
+			</div>
+		  </div>
+		</div>
+
+		<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+		  <div class="member" data-aos="fade-up" data-aos-delay="200">
+			<div class="member-img">
+			  <img src="https://images.unsplash.com/photo-1611861532443-6f38580edda3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="img-fluid" alt="">
+			  <div class="social">
+				<a href=""><i class="bi bi-twitter"></i></a>
+				<a href=""><i class="bi bi-facebook"></i></a>
+				<a href=""><i class="bi bi-instagram"></i></a>
+				<!-- <a href=""><i class="bi bi-linkedin"></i></a> -->
+			  </div>
+			</div>
+			<div class="member-info">
+			  <h4> DR.Ramcharan Chaudhari</h4>
+			<h6>  Specilization :Dermatologist – चर्म रोगों का विशेषज्ञ </h6>
+			  <p>	Educational_Qualifications : Masters of Surgery(MS)  </p>
+				  
+				  <p>Experience : 3 years</p>
+				  <p>Language:English, हिंदी</p>
+				  <p>Fees :<strong>₹</strong> 500</p>
+				  <p>Opd_Shift: Friday(10am to 5pm)</p>
+				  <!-- <p>Locality:Near Sump House , Patna</p> -->
+				  <!-- <a href="#" class="btn btn-success">Not_Available</a> -->
+
+			
+			</div>
+		  </div>
+		</div>
+
+		<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+		  <div class="member" data-aos="fade-up" data-aos-delay="300">
+			<div class="member-img">
+			  <img src="https://image.freepik.com/free-photo/young-indian-man-doctor-against-gray-wall_251136-6291.jpg" class="img-fluid" alt="">
+			  <div class="social">
+				<a href=""><i class="bi bi-twitter"></i></a>
+				<a href=""><i class="bi bi-facebook"></i></a>
+				<a href=""><i class="bi bi-instagram"></i></a>
+				<!-- <a href=""><i class="bi bi-linkedin"></i></a> -->
+			  </div>
+			</div>
+			<div class="member-info">
+			  <h4>Dr. Sangeet Kumar Yadav</h4>
+			  <h6>  Specilization: Psychiatrist– मानसिक रोगों का विशेषज्ञ – मनोचिकित्सक </h6>
+				<p>	Educational_Qualifications : Masters of Surgery(MS)  </p>
+				  
+				<p>Experience : 5 years</p>
+				<p>Language:English, हिंदी</p>
+				<p>Fees :<strong>₹</strong> 1000</p>
+				<p>Opd_Shift: Friday(10am to 5pm)</p>
+				<!-- <p>Locality:Near Sump House , Patna</p> -->
+				<!-- <a href="#" class="btn btn-success">Available</a> -->
+			</div>
+		  </div>
+		</div>
+
+
+
+		<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+			<div class="member" data-aos="fade-up" data-aos-delay="300">
+			  <div class="member-img">
+				<img src="https://thumbs.dreamstime.com/b/smiling-indian-doctor-lab-coat-holding-pill-violet-background-smiling-indian-doctor-lab-coat-holding-pill-over-violet-196115534.jpg" class="img-fluid" alt="">
+				<div class="social">
+				  <a href=""><i class="bi bi-twitter"></i></a>
+				  <a href=""><i class="bi bi-facebook"></i></a>
+				  <a href=""><i class="bi bi-instagram"></i></a>
+				  <!-- <a href=""><i class="bi bi-linkedin"></i></a> -->
+				</div>
+			  </div>
+			  <div class="member-info">
+				<h4>Dr. Rakesh Singh</h4>
+				 <h6>  Specilization: Ophthalmologist – आखों के रोगों का डाक्टर </h6>
+
+				
+				<p>	Educational_Qualifications : Masters of Surgery(MS)  </p>
+				  
+				<p>Experience : 5 years</p>
+				<p>Language:English, हिंदी</p>
+				<p>Fees :<strong>₹</strong> 1000</p>
+				<p>Opd_Shift: Friday(10am to 5pm)</p>
+				<!-- <p>Locality:Near Sump House , Patna</p> -->
+				<!-- <a href="#" class="btn btn-success">Available</a> -->
+			  </div>
+			</div>
+		  </div>
+
+		  <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+			<div class="member" data-aos="fade-up" data-aos-delay="300">
+			  <div class="member-img">
+				<img src="https://static7.depositphotos.com/1003326/736/i/950/depositphotos_7367133-stock-photo-pediatrician.jpg" class="img-fluid" alt="">
+				<div class="social">
+				  <a href=""><i class="bi bi-twitter"></i></a>
+				  <a href=""><i class="bi bi-facebook"></i></a>
+				  <a href=""><i class="bi bi-instagram"></i></a>
+				  <!-- <a href=""><i class="bi bi-linkedin"></i></a> -->
+				</div>
+			  </div>
+			  <div class="member-info">
+				<h4>Dr.Alka </h4>
+				<h6>  Specilization : Internist – शरीर के आन्तरिक अंगों की बीमारियों का विशेषज्ञ </h6>
+
+				
+				<p>	Educational_Qualifications : Diploma in Gynaecology & Obstetrics (D. G. O.)   </p>
+				  
+				  <p>Experience : 3 years</p>
+				  <p>Language:English, हिंदी</p>
+				  <p>Fees :<strong>₹</strong> 800</p>
+				  <p>Opd_Shift: Monday(10am to 5pm)</p>
+				  <p>Locality:Gopalganj , Bihar</p>
+				  <!-- <a href="#" class="btn btn-success">Available</a> -->
+
+			  </div>
+			</div>
+		  </div>
+
+
+
+		  <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+			<div class="member" data-aos="fade-up" data-aos-delay="300">
+			  <div class="member-img">
+				<img src="https://st2.depositphotos.com/2034971/6348/i/950/depositphotos_63485299-stock-photo-doctor-and-child-enjoy-and.jpg" class="img-fluid" alt="">
+				<div class="social">
+				  <a href=""><i class="bi bi-twitter"></i></a>
+				  <a href=""><i class="bi bi-facebook"></i></a>
+				  <a href=""><i class="bi bi-instagram"></i></a>
+				  <!-- <a href=""><i class="bi bi-linkedin"></i></a> -->
+				</div>
+			  </div>
+			  <div class="member-info">
+				<h4>Dr. Simran Khatoon</h4>
+				<h6>  Specilization :Paediatrician – केवल शिशुओं और छोटे बच्चो का डाक्टर </h6>
+				
+				<p>	Educational_Qualifications : MBBS + MD ,collage :Bharati Vidyapeeth Deemed University, Pune</p>
+				  
+				  <p>Experience : 3 years</p>
+				  <p>Language:English, हिंदी</p>
+				  <p>Fees :<strong>₹</strong> 800</p>
+				  <p>Opd_Shift: Monday(10am to 5pm)</p>
+				  <p>Locality:Patna , Bihar</p>
+				  <!-- <a href="#" class="btn btn-success">Available</a> -->
+
+			  </div>
+			</div>
+		  </div>
+
+		  <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+			<div class="member" data-aos="fade-up" data-aos-delay="300">
+			  <div class="member-img">
+				<img src="https://static8.depositphotos.com/1377214/864/i/950/depositphotos_8641673-stock-photo-surprised-baby-being-checked-by.jpg" class="img-fluid" alt="">
+				<div class="social">
+				  <a href=""><i class="bi bi-twitter"></i></a>
+				  <a href=""><i class="bi bi-facebook"></i></a>
+				  <a href=""><i class="bi bi-instagram"></i></a>
+				  <!-- <a href=""><i class="bi bi-linkedin"></i></a> -->
+				</div>
+			  </div>
+			  <div class="member-info">
+				<h4>Dr.Diya Yadav</h4>
+			<h6>  Specilization:	general physician </h6>
+			<p>	Educational_Qualifications : MBBS</p>
+				  
+				  <p>Experience : 3 years</p>
+				  <p>Language:English, हिंदी</p>
+				  <p>Fees :<strong>₹</strong> 800</p>
+				  <p>Opd_Shift: Monday(10am to 5pm)</p>
+				  <p>Locality:Patna , Bihar</p>
+				  <!-- <a href="#" class="btn btn-success">Available</a> -->
+
+				
+				
+			
+			  </div>
+			</div>
+		  </div> 
+
+		<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+		  <div class="member" data-aos="fade-up" data-aos-delay="400">
+			<div class="member-img">
+			  <img src="https://static5.depositphotos.com/1001992/499/i/950/depositphotos_4992532-stock-photo-care-about-pregnant-woman.jpg" class="img-fluid" alt="">
+			  <div class="social">
+				<a href=""><i class="bi bi-twitter"></i></a>
+				<a href=""><i class="bi bi-facebook"></i></a>
+				<a href=""><i class="bi bi-instagram"></i></a>
+				<!-- <a href=""><i class="bi bi-linkedin"></i></a> -->
+			  </div>
+			</div>
+			<div class="member-info">
+			  <h4> Dr.Mithilesh Sharma </h4>
+			  <h6> Specilization : Gynaecologist – स्त्री रोगों का विशेषज्ञ </h6>
+			
+			<p>	Educational_Qualifications : Diploma in Gynaecology & Obstetrics (D. G. O.)   </p>
+				  
+				  <p>Experience : 3 years</p>
+				  <p>Language:English, हिंदी</p>
+				  <p>Fees :<strong>₹</strong> 500</p>
+				  <p>Opd_Shift: Monday to Saturday(10am to 5pm)</p>
+				  <p>Locality:Gopalganj , Bihar</p>
+				  <!-- <a href="#" class="btn btn-success">Available</a> -->
+
+			</div>
+		  </div>
+		</div>
+
+	  </div>
+
+	</div>
+  </section><!-- End Doctors Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+	<div class="container">
+
+	  <div class="section-title">
+		<h2>Contact</h2>
+		<p>Doctors are a boon to the mankind and we must respect their profession. They are life saviors and treat many bodily illnesses. We cannot imagine our lives without them because when we fall ill or have any bodily ailments, we go up to them</p>
+	  </div>
+
+	</div>
+
+	<div>
+	  <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+	</div>
+
+	<div class="container">
+
+	  <div class="row mt-5">
+
+		<div class="col-lg-6">
+
+		  <div class="row">
+			<div class="col-md-12">
+			  <div class="info-box">
+				<i class="bx bx-map"></i>
+				<h3>Our Address</h3>
+				<p>Yadav pur road ,Gopalganj,Bihar(841409) INDIA</p>
+			  </div>
+			</div>
+			<div class="col-md-6">
+			  <div class="info-box mt-4">
+				<i class="bx bx-envelope"></i>
+				<h3>Email Us</h3>
+				<p>hospitalutkarsh24x7@gmail.com</p>
+			  </div>
+			</div>
+			<div class="col-md-6">
+			  <div class="info-box mt-4">
+				<i class="bx bx-phone-call"></i>
+				<h3>Call Us</h3>
+				<p>+91 9472843202 </p>
+			  </div>
+			</div>
+		  </div>
+
+		</div>
+
+		<div class="col-lg-6">
+		  <form action="{% url 'send-feedback'%}" method="POST">
+			  {%csrf_token%}
+			<div class="row">
+			  <div class="col form-group">
+				<input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+				{{form.name}}
+			  </div>
+			  <div class="col form-group mt-3">
+				<input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+				{{form.email}}
+
+			  </div>
+			</div>
+			<!-- <div class="form-group mt-3">
+			  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+			</div> -->
+			<div class="form-group mt-3">
+			  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+			  {{form.message}}
+			</div>
+			<!-- <div class="my-3">
+			  <div class="loading">Loading</div>
+			  <div class="error-message"></div>
+			  <div class="sent-message">Your message has been sent. Thank you!</div>
+			</div> -->
+			<br>
+			<div class="text-center"><button type="submit">Send Message</button></div>
+			
+		  </form>
+		</div>
+
+	  </div>
+
+	</div>
+  </section><!-- End Contact Section -->
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-info">
+              <h3>Utkarsh Hospital</h3>
+              <p>
+                Gopalganj<br>
+				Bihar(841409), INDIA<br><br>
+                <strong>Phone:</strong> +91 9472843202<br>
+                <strong>Email:</strong> hospitalutkarsh24x7@gmail.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <!-- <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>THE HOSPITAL</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'Home'%}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'Appointment'%}">Book an Appointment</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#departments">Our Specialities</a></li>
+              <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">Patient Services</a></li> -->
+            
+            </ul>
+          </div>
+
+
+		  <hr class="clearfix w-100 d-md-none">
+		  <!-- <div class="col-md-4 col-lg-3 mx-auto my-md-4 my-0 mt-4 mb-1"> -->
+			  <div class="col-lg-4 col-md-6 footer-links"> 
+
+			<!-- Contact details -->
+			<h4> Address</h4>
+	
+			<ul class="list-unstyled">
+			  <li>
+				<p>
+				  <i class="fas fa-home mr-3"></i> Yadav pur road ,Gopalganj,Bihar</p>
+			  </li>
+			  <li>
+				<p>
+				  <i class="fas fa-envelope mr-3"></i> hospitalutkarsh24x7@gmail.com</p>
+			  </li>
+			  <li>
+				<p>
+				  <i class="fas fa-phone mr-3"></i> +91 9472843202</p>
+			  </li>
+			  
+			</ul>
+	
+		  </div>
+		  
+		  <div class="col-lg-3 col-md-6 footer-newsletter">
+		  <h4> <strong>Star Rating</strong> </h4>
+<div class="rating"> <input type="radio" name="rating" value="5" id="5">
+	<label for="5">☆</label> <input type="radio" name="rating" value="4" id="4">
+	<label for="4">☆</label> <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+	 <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+	  <input type="radio" name="rating" value="1" id="1">
+	 <label for="1">☆</label>
+</div>
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var txt;
+  if (confirm("Thanks for the Feedback!")) {
+    txt = "You pressed OK!";
+  } else {
+    txt = "You pressed Cancel!";
+  }
+  document.getElementById("demo").innerHTML = txt;
+}
+</script>
+<form action="#Home">
+
+
+	<input type="email" name="email">
+	<input onclick="myFunction()" type="submit" value="Feedback"/>
+  </form>
+</div>
+          <!-- <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Our Newsletter</h4>
+            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+
+          </div> -->
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Utkarsh Hospital</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        
+        Designed by Manibhusan & Pankaj
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+
+
+
+
+
+
+
+
+
+  
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> -->
+</body>
+</html>

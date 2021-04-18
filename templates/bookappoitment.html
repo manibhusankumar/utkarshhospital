@@ -1,0 +1,567 @@
+{% extends 'navbarbook.html'%}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>appointment</title>
+	{% load static %}
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <style type="text/css">
+	
+
+<style>
+@import url(//fonts.googleapis.com/css?family=Montserrat:400,500,700);
+.banner3 {
+  font-family: "Montserrat", sans-serif;
+  color: #8d97ad;
+  font-weight: 300;
+  max-height: 800px;
+}
+
+.banner3 .banner {
+  position: relative;
+  max-height: 700px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  width: 100%;
+  display: table;
+}
+
+.banner3 h1,
+.banner3 h2,
+.banner3 h3,
+.banner3 h4,
+.banner3 h5,
+.banner3 h6 {
+  color: #3e4555;
+}
+
+.banner3 .font-weight-medium {
+  font-weight: 500;
+}
+
+.banner3 .subtitle {
+  color: #8d97ad;
+  line-height: 24px;
+}
+
+.banner3 .btn-danger-gradiant {
+  background: #ff4d7e;
+  background: -webkit-linear-gradient(legacy-direction(to right), #ff4d7e 0%, #ff6a5b 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#ff4d7e), to(#ff6a5b));
+  background: -webkit-linear-gradient(left, #ff4d7e 0%, #ff6a5b 100%);
+  background: -o-linear-gradient(left, #ff4d7e 0%, #ff6a5b 100%);
+  background: linear-gradient(to right, #ff4d7e 0%, #ff6a5b 100%);
+  border: 0px;
+}
+
+.banner3 .btn-danger-gradiant:hover {
+  background: #ff6a5b;
+  background: -webkit-linear-gradient(legacy-direction(to right), #ff6a5b 0%, #ff4d7e 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#ff6a5b), to(#ff4d7e));
+  background: -webkit-linear-gradient(left, #ff6a5b 0%, #ff4d7e 100%);
+  background: -o-linear-gradient(left, #ff6a5b 0%, #ff4d7e 100%);
+  background: linear-gradient(to right, #ff6a5b 0%, #ff4d7e 100%);
+}
+
+.banner3 .btn-danger-gradiant.active,
+.banner3 .btn-danger-gradiant:active,
+.banner3 .btn-danger-gradiant:focus {
+  -webkit-box-shadow: 0px;
+  box-shadow: 0px;
+  opacity: 1;
+}
+
+
+.banner3 .btn-md {
+  padding: 15px 45px;
+  font-size: 16px;
+}
+
+.banner3 .form-row {
+  margin: 0;
+}
+
+.banner3 label.font-12 {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.banner3 .form-control {
+  color: #8d97ad;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.banner3 .date label {
+  cursor: pointer;
+  margin: 0;
+}
+
+@media (max-width: 370px) {
+  .banner3 .left,
+  .banner3 .right {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 320px) {
+  .banner3 .left,
+  .banner3 .right {
+    padding: 25px 15px;
+  }
+}
+
+.banner3 .font-14 {
+  font-size: 14px;
+}
+
+.banner3 .text-inverse {
+  color: #3e4555 !important;
+}
+.bg-white{
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.glow {
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px red, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff;
+  }
+  
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px white, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff, 0 0 80px #fff;
+  }
+}
+
+
+
+
+</style>
+<script>
+	$(function() {
+  $('#dp').datepicker();
+});
+</script>
+
+{% if messages %}
+{% for message in messages %}
+{% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+
+{% endfor %}
+
+{% endif %}
+</head>
+<body>
+
+
+
+<div class="banner3">
+	<div class="py-5 banner" style="background-image:url(https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/form-banners/banner2/banner-bg.jpg);">
+	  <div class="container">
+		<div class="row">
+		  <div class="col-md-7 col-lg-5">
+			<h2 class="glow">Make Appointment</h2>
+			<div class="bg-white">
+			  <!-- <div class="form-row border-bottom">
+				<div class="p-4 left border-right w-50">
+				  <label class="text-inverse font-12 text-uppercase">First Name</label>
+				  <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Your First Name" />
+				</div>
+				<div class="p-4 right w-50">
+				  <label class="text-inverse font-12 text-uppercase">Last Name</label>
+				  <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Your Last Name" />
+				</div>
+			  </div> -->
+			  <form method="POST" action="">
+				{%csrf_token%}
+			  <div class="form-row border-bottom p-4">
+				<label class="text-inverse font-12 text-uppercase">Patient Name</label>
+				<!-- <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Enter Patient Name" /> -->
+				{{form.patient_name}}
+			  </div>
+			  
+			  <div class="form-row border-bottom p-4">
+				<label class="text-inverse font-12 text-uppercase">Phone Number</label>
+				<!-- <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Enter your Phone Number" /> -->
+				{{form.phone_number}}
+			  </div>
+
+
+			  <div class="form-row border-bottom p-4">
+				<label class="text-inverse font-12 text-uppercase">Email Address</label>
+				<!-- <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Enter your Email Address" /> -->
+				{{form.email}}
+			  </div>
+			  
+			  <div class="form-row border-bottom p-4 position-relative">
+				<label class="text-inverse font-12 text-uppercase">Booking Date</label>
+				<div class="input-group date">
+				  <!-- <input type="text" class="border-0 p-0 font-14 form-control" id="dp" placeholder="Select the Appointment Date" /> -->
+				  {{form.date}}
+				  <label class="mt-2" for="dp"><i class="icon-calendar mt-1"></i></label>
+				</div>
+			  </div>
+
+			  <div class="form-row border-bottom p-4 position-relative">
+				<label class="text-inverse font-12 text-uppercase">Gender</label>
+				<div class="input-group date">
+						{{form.gender}}
+					</div>
+			</div> 
+
+
+			  <div class="form-row border-bottom p-4 position-relative">
+				<label class="text-inverse font-12 text-uppercase">Department</label>
+				<div class="input-group date">	
+						{{form.department}}
+				</div>		
+			</div>
+
+
+			<div class="form-row border-bottom p-4 position-relative">
+				<label class="text-inverse font-12 text-uppercase">Doctor</label>
+				<div class="input-group date">	
+						{{form.doctor}}
+				</div>		
+			</div>
+
+			
+			  
+			  <div class="form-row border-bottom p-4">
+				<label class="text-inverse font-12 text-uppercase">Message</label>
+				<!-- <textarea col="1" row="1" class="border-0 p-0 font-weight-light font-14 form-control" placeholder="Write Down the Message"></textarea> -->
+				{{form.message}}
+			  </div>
+			  <div>
+				  
+				<button class="m-0 border-0 py-4 font-14 font-weight-medium btn btn-danger-gradiant btn-block position-relative rounded-0 text-center text-white text-uppercase">
+									  <span>Book Now Appointment</span>
+							  </button>
+						</form>			  
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <script>
+	/* Because i didnt set placeholder values in forms.py they will be set here using vanilla Javascript
+//We start indexing at one because CSRF_token is considered and input field 
+*/ 
+
+<!-- //Query All input fields
+var form_fields = document.getElementsByTagName('input')
+form_fields[1].placeholder='Enter patient_name..';
+form_fields[2].placeholder='Enter your Email Address..';
+form_fields[3].placeholder='Enter your Phone Number...';
+form_fields[4].placeholder='Select the Appointment Date...';
+
+
+for (var field in form_fields){	
+form_fields[field].className += ' form-control'
+}
+</script>
+
+</body>
+</html>
+<br>
+<!-- ======= Services Section ======= -->
+<section id="services" class="services services">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>Hospital Services are the collective activities of all departments and all personnel of a hospital, which end-up in satisfactory patients care. Classification of hospital services have been proposed in diversified definitions, which do not completely agree with each other.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon"><i class="fas fa-heartbeat"></i></div>
+          <h4 class="title"><a href="">Emergency</a></h4>
+          <p>Treat acute conditions,injury and illness</p>
+          <p>Most common issues:injuries,chest pain</p>
+          <p>24 X 7 coverage and availability.</p>
+          <p>Equipment,Staff.</p>
+
+          
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon"><i class="fas fa-pills"></i></div>
+          <h4 class="title"><a href="">Observation Care</a></h4>
+          <p>Patients are observation on an outpatient basis inside the hospital.</p>
+          <p>Typically less then two days.</p>
+          <p>Billed and paid under Outpatient methodology.</p>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon"><i class="fas fa-hospital-user"></i></div>
+          <h4 class="title"><a href="">Other Services & Departments</a></h4>
+          <p >Radiology example X-Rayes,MRI</p>
+          <p >Laboratory</p>
+          <p >Hospital based Outpatient Clinic</p>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon"><i class="fas fa-dna"></i></div>
+          <h4 class="title"><a href="">Common Continues Hospital Treat</a></h4>
+          <p>Circulatory system 21 % </p>
+          <p>Musculoskeletal System 13% </p>
+          <p>Digestive System 11% </p>
+          <p>Nervous System 8% </p>
+          <p>Kidneys 8% </p>
+          <p>Infections 7% </p>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon"><i class="fas fa-wheelchair"></i></div>
+          <h4 class="title"><a href="">Surgery</a></h4>
+          <p>Operating room with sterile conditions</p>
+          <p>Equipment,Staff</p>
+          <p>Continues monitoring and treatment</p>
+          <p>Care for severe and life theatening illnesses</p>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon"><i class="fas fa-notes-medical"></i></div>
+          <h4 class="title"><a href="">pharmacy</a></h4>
+          <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Services Section -->
+
+  <!-- ======= Departments Section ======= -->
+ <section id="departments" class="departments">
+	<div class="container" data-aos="fade-up">
+
+	  <div class="section-title">
+		<h2>Departments</h2>
+		<p>Doctors are a boon to the mankind and we must respect their profession. They are life saviors and treat many bodily illnesses. We cannot imagine our lives without them because when we fall ill or have any bodily ailments, we go up to them.</p>
+	  </div>
+
+	  <div class="row" data-aos="fade-up" data-aos-delay="100">
+		<div class="col-lg-4 mb-5 mb-lg-0">
+		  <ul class="nav nav-tabs flex-column">
+			<li class="nav-item">
+			  <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-1">
+				<h4>Ophthalmologist – आखों के रोगों का डाक्टर</h4>
+				<p>Eye doctors use a wide variety of tests and procedures to examine your eyes..</p>
+			  </a>
+			</li>
+			<li class="nav-item mt-2">
+			  <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
+				<h4>Psychiatrist– मानसिक रोगों का विशेषज्ञ – मनोचिकित्सक
+				</h4>
+				<p>The medical speciality concerned with the diagnosis, prevention,</p>
+			  </a>
+			</li>
+
+
+			<!-- <li class="nav-item mt-2">
+				<a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-2">
+				  <h4>Dermatologist – चर्म रोगों का विशेषज्ञ
+				  </h4>
+				  <p>Voluptas vel esse repudiandae quo excepturi.</p>
+				</a>
+			  </li> -->
+
+
+
+			<li class="nav-item mt-2">
+			  <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-3">
+				<h4>Paediatrician – केवल शिशुओं और छोटे बच्चो का डाक्टर</h4>
+				<p>Paediatricians know a lot about the many different conditions and illnesses that can affect children’s health, welfare, behaviour and learning. They also understand how different illnesses and conditions relate to each other.
+					</p>
+			  </a>
+			</li>
+			<li class="nav-item mt-2">
+			  <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-4">
+				<h4>Gynaecologist – स्त्री रोगों का विशेषज्ञ</h4>
+				<p>They diagnose and treat issues related to the female reproductive tract. This includes the uterus, fallopian tubes, and ovaries and breasts.
+				</p>
+			  </a>
+			</li>
+		  </ul>
+		</div>
+		<div class="col-lg-8">
+		  <div class="tab-content">
+			<div class="tab-pane active show" id="tab-1">
+			  <h3>Ophthalmologist – आखों के रोगों का डाक्टर</h3>
+			  <p class="font-italic"><h2>Refraction(अपवर्तन)</h2>
+				This is the test that your eye doctor uses to determine your eyeglass prescription.
+				
+				During a manual refraction, your doctor puts an instrument called a phoropter in front of your eyes and shows you a series of lens choices. He or she will then ask you which of the two lenses in each choice looks clearer.</p>
+			  <img src="https://images.ctfassets.net/u4vv676b8z52/4nzMjbwhSW3d1wnZOb9Idz/d1789071acbd1a5f88ce72d4771ca4b1/exam-phoropter-330x220_2x.jpg_h_250?fm=jpg&q=80 "alt="" class="img-fluid">
+
+			  <p>the best lens power will be fine-tuned until the eyeglass prescription that gives you the clearest vision is determined.</p>
+			  
+			
+			  		<br>
+					<br>
+					<br>
+					<br>
+					<br>
+			
+
+			  
+			  <img src="https://images.ctfassets.net/u4vv676b8z52/76FvKvbx7iaXWBl189yPvR/b90ab8af1786cc59f9df2e58f6f75eaf/exam-slit-lamp-330x220_2x.jpg_h_250?fm=jpg&q=80"alt="" class="img-fluid">
+			  <p class="font-italic"><h2>Slit lamp </h2></p>
+			  <p>During the slit lamp , you will be asked to place your forehead and chin securely against the rests on the front of the instrument and your doctor will begin by examining the structures of the front of your eyes — including your eyelids, cornea, conjunctiva, iris, and lens.</p>
+
+			
+			</div>
+
+			<div class="tab-pane" id="tab-2">
+			  <h3>Psychiatrist– मानसिक रोगों का विशेषज्ञ – मनोचिकित्सक
+			</h3>
+			  <p class="font-italic">The medical speciality concerned with the diagnosis, prevention, and treatment of mental disorders is known as psychiatry. These disorders may be divided into mental illnesses, personality disorders, and severe learning disabilities. A psychiatrist is a doctor who specialises in psychiatry.</p>
+			  <img src="https://static.toiimg.com/thumb/75868585.cms?width=804&height=603&resizemode=4&imgsize=141308" alt="" class="img-fluid">
+			  <p> <u>You can consult a Psychiatrist if</u>
+				  <br>
+					You are suffering from depression, schizophrenia, and bipolar disorder
+					<br>
+					You have anxiety, stress, alcohol addiction, etc.</p>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+			
+					<img src="https://www.abeergroup.com/ksa/images/services/Description/DivisionofPsychiatry_41.jpg"alt="" class="img-fluid">
+					<p class="font-italic"><h2>some key </h2></p>
+					<p>Everyone goes through tough times. But sometimes, the negative way someone feels inside -- depressed, anxious, wanting to avoid people, having trouble thinking -- may be more than the ups and downs most people feel now and then. If symptoms like these start to get in the way of your life, or that of a loved one, it’s important to take action. Research shows that getting help early can prevent symptoms from getting worse and make a full recovery more likely..</p>
+				
+				
+
+			</div>
+
+
+
+			<!-- <div class="tab-pane" id="tab-2">
+				<h3>Dermatologist – चर्म रोगों का विशेषज्ञ
+			  </h3>
+				<p class="font-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta paulona marka</p>
+				<img src="{% static 'assets/img/departments-2.jpg' %}" alt="" class="img-fluid">
+				<p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+			  </div> -->
+
+
+			<div class="tab-pane" id="tab-3">
+			  <h3>Paediatrician – केवल शिशुओं और छोटे बच्चो का डाक्टर</h3>
+			  <p class="font-italic">A paediatrician is a medical doctor with special training and skills in the conditions and illnesses that affect the health, growth and development of babies, children and teenagers.</p>
+			  <img src="https://media.gettyimages.com/photos/medical-doctor-wear-mask-and-examining-little-boy-in-clinic-picture-id1205445873?b=1&k=6&m=1205445873&s=170667a&w=0&h=xPkTV9YkuvQVbbBOSTZEYfqZPpk10BlzuoaR6mjYr9s=" alt="" class="img-fluid">
+			  <p>Paediatricians know a lot about the many different conditions and illnesses that can affect children’s health, welfare, behaviour and learning. They also understand how different illnesses and conditions relate to each other.
+
+				Some paediatricians specialise in areas like neonatology (treatment of newborn babies), cardiology (heart problems) or development and behaviour.</p>
+
+			  <br>
+			  <br>
+			  <br>
+			  <br>
+			  
+	  
+			  <img src="https://us.123rf.com/450wm/oksun70/oksun701602/oksun70160200024/53477119-pediatric-doctor-woman-examining-heartbeat-of-child-with-stethoscope.jpg?ver=6"alt="" class="img-fluid">
+			  <p class="font-italic"><h2>Some Key </h2></p>
+			  <p>Paediatricians specialise in the health, growth and development of babies, children and teenagers.
+				Paediatricians know a lot about the many different conditions that can affect children’s health, welfare, behaviour and learning..</p>
+		  
+
+
+			</div>
+
+			
+			
+			<div class="tab-pane" id="tab-4">
+			  <h3>Gynaecologist – स्त्री रोगों का विशेषज्ञ</h3>
+			  <p class="font-italic">Your gynecologists will exam your reproductive system, both internally and externally. They’ll examine your breasts and check for any lumps or cysts.</p>
+			  <img src="https://thumbs.dreamstime.com/b/young-pregnant-women-having-appointment-gynecologist-office-pregnant-woman-having-appointment-gynecologist-office-118218487.jpg" alt="" class="img-fluid">
+			  <br>
+			  <p>A gynecologist is a doctor who specializes in female reproductive health. They diagnose and treat issues related to the female reproductive tract. This includes the uterus, fallopian tubes, and ovaries and breasts.
+
+				Anyone with female organs may see a gynecologist.  80% of those who see one are between 15 to 45 years old. </p>
+			
+			  <br>
+			  <br>
+			  
+			
+			  
+	  
+			  <img src="https://vasundharahospital.com/wp-content/uploads/2019/06/Gynecology-Obstetrics.jpg"alt="" class="img-fluid">
+			  <!-- <p class="font-italic"><h2>Slit lamp </h2></p> -->
+			  <br>
+			  <p>If your gynecologist diagnoses you with a medical condition, they may give you treatment or refer you to a specialist. Depending on the problem, your treatments may involve medication, surgery, or a wait-and-see approach. </p>
+			  
+		    
+
+
+
+
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+	</div>
+  </section><!-- End Departments Section -->
+
+ <!-- ======= About Us Section ======= -->
+ <section id="about" class="about">
+	<div class="container" data-aos="fade-up">
+
+	  <div class="section-title">
+		<h2>About Us</h2>
+		<p> utkarsh Hospital Whether a patient is coming in for a routine or a specialized procedure .</p>
+	  </div>
+
+	  <div class="row">
+		<div class="col-lg-6" data-aos="fade-right">
+		  <img src="https://www.joonsquare.com/usermanage/image/business/utkarsh-hospital-kheda-6118/utkarsh-hospital-kheda-utkarsh-hospital-04.jpg" class="img-fluid" alt="">
+		</div>
+		<div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left">
+		  <h3>utkarsh Hospital Group has over two decades of experience in the healthcare sector, and is known for providing quality healthcare and valuable experience to all domestic and international patients.</h3>
+		  <p class="font-italic">
+			Our healthcare offerings are supported by a team of compassionate and dedicated medical professionals who have rich knowledge and experience in their respective domains.
+		  </p>
+		  <ul>
+			<li><i class="bi bi-check-circle"></i>Organ Transplant
+			</li>
+			<li><i class="bi bi-check-circle"></i> Neonatal Intensive Care Unit.</li>
+			<li><i class="bi bi-check-circle"></i> Comprehensive Neuromedicine.</li>
+			<li><i class="bi bi-check-circle"></i> Complex Cardiology.</li>
+		  </ul>
+		  <p>
+			A condition is never isolated. 
+			Patients always have a team of people and specialists taking care of them, 
+			all supported with the highest technology. That technology also applies to communication.
+			 All of a patient’s medical information is consolidated into a single medical record thus eliminating potential for miscommunication.
+		  </p>
+		</div>
+	  </div>
+
+	</div>
+  </section><!-- End About Us Section -->
+
+
+
+
+{% include 'footer.html' %}
+
+{% endblock %}

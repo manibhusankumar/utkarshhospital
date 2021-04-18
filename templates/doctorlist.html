@@ -1,0 +1,105 @@
+{% block content %}
+<head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  
+    <style media="screen">
+      a:link {
+        text-decoration: none;
+      }
+  
+      h1 {
+        text-align: center;
+        background-color:wheat;
+  
+      }
+  
+      .row {
+        margin: 100px;
+      }
+      #m2{
+        margin-left: 70px;
+        
+      }
+    </style>
+    
+
+	
+  </head>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  
+   <div class="table-responsive">
+    <div class="panel panel-primary">
+      <div class="container-fluid">
+        <!-- <h1><strong>Doctor/Update/Delate</strong></h1> -->
+      </div>
+      <!-- <table class="table table-bordered">
+        
+            
+          
+    
+          
+  
+        
+    
+      </tr>
+  
+  </table>
+  
+  </div>
+  </div>
+  <br>  -->
+  <br>
+  <br>
+  <div class="row">
+  {%for i in read%}
+  <div class="col-sm-3">
+    <div  style="background-color: rgba(63, 187, 192, 0.5);">
+                <img class="card-img-top" src="{{i.image.url}}" alt="Card image cap" width="5%">
+                  <div class="card-body">
+                    <h2 style="color: rgb(238, 54, 85);" id="m2"> <span><strong><u>About Doctor</u></strong></span></h2>
+                    <!-- <h6 class="card-subtitle mb-2 text-muted">Your Post</h6> -->
+                    <h4> Doctor_Id:<strong >{{i.id}} </strong></h4> 
+                    
+                    <h4> Doctor_Name :<strong >{{i.doctor_name}}</strong></h4>
+                    
+                    <h4> Specilization :<strong>{{i.specilization}} </strong></h4>
+                    <h4>Educational_Qualifications :<strong>{{i.educational_qualifications}} </strong></h4>
+                    <h4> Experience :<strong>{{i.experience}} </strong></h4>
+                    <h4>Language:<strong>{{i.language}} </strong></h4>
+                    <h4> Fees :<strong>{{i.fees}} </strong></h4>
+                    <h4> OPT_Shift:<strong>{{i.opd_shift}}</strong></h4>
+                                      
+                    <br>
+                    
+                    {%if request.user.is_staff%}
+                    <a href="{%url 'update' i.id%}" class="card-link btn btn-success">Update</a></h6>
+                    
+                    <a href="{%url 'Delete_doctor' i.id%}" class="card-link btn btn-danger">Delete</a>
+                    {% endif%}
+                  
+                  </div>
+                </div>
+                </div>
+                <br>
+          
+                {% endfor %}
+                <br>
+                
+              </div>
+            
+      
+  <br>
+  <br>
+  <br>
+  
+  {% endblock %} 

@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+{% load static%}
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Action</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.jpg' %}" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <style>
+	#mani{
+		margin-left: 100px;
+	}
+  #text{
+    font-size: 20px;
+  }
+
+  .chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  margin-left: 50px;
+  background-color:blanchedalmond;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.maniG{
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 10px;
+  line-height: 50px;
+  border-radius: 25px;
+  margin-left: 30px;
+  background-color:rgba(63, 187, 192, 0.5);
+}
+.maniG img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+#logo{
+  margin-right:5px;
+  margin-top: 10px;
+}
+
+</style>
+  
+</head>
+
+<body>
+	 
+	
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
+      <div class="align-items-center d-none d-md-flex">
+        <i class="bi bi-clock"></i> Monday - Saturday, 8AM to 10PM
+      </div>
+      <div class="d-flex align-items-center">
+        <i class="bi bi-phone"></i> Call us now +91 9472843202
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <a href="{% url 'Home'%}" class="logo me-auto"><img src="{% static 'assets/img/logo1.png' %}" alt=""></a>
+      
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul id="action">
+			
+          <li><a class="nav-link scrollto " href="{% url 'Admin'%}">Admin Dashboard</a></li>
+
+      
+      {%if request.user.is_authenticated%}
+      <li><a href="{% url 'Actions_Appointment'%}">Pending Appointments</a></li>
+	  <li><a href="{% url 'Ensure'%}">ENSURE</a></li>
+    <div class="maniG">
+      <img src="https://previews.123rf.com/images/alexwhite/alexwhite1212/alexwhite121201118/16809932-logout-blue-glossy-icon-on-white-background.jpg" alt="Person" width="90" height="90">
+      <a href="{% url 'Admin_logout'%}" id="logo"><h5>Logout</h5></a>
+
+    </div>
+      <div class="chip">
+        <img src="https://utkarshkart.com/wp-content/uploads/2020/09/App-Logo-1.png" alt="Person" width="96" height="96">
+        New Appointments
+      </div>
+	
+			{% endif%}
+       
+		
+          
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+<!-- Vendor JS Files -->
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+
+</body>
+</html>
+
+
+
+<br>
+<br>
+
+
+{% block content %}
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h1 {
+      text-align: center;
+      background-color:wheat;
+
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+  {% if messages %}
+  {% for message in messages %}
+  {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+  
+  {% endfor %}
+  
+  {% endif %}
+</head>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="table-responsive">
+  <div class="panel panel-primary">
+    <div class="container-fluid">
+      <h1><strong>Approve/Reject/Delate Appointments</strong></h1>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr class="table-success">
+
+          <th><h3><strong>Id</strong></h3></th>
+          <th><h3><strong>Patient Name</strong> </h3></th>
+          <th><h3><strong>Phone Name</strong></h3></th>
+          <th><h3><strong>Email Address</strong></h3></th>
+          <th><h3><strong>Date</strong></h3></th>
+          <th><h3><strong>Gender</strong</h3></th>
+          <th><h3><strong>Department<strong></h3></th>
+          <th><h3><strong>Doctor<strong></h3></th>
+          <th><h3><strong>Message<strong></h3></th>
+
+          <th><h3><strong>Approve<strong></h3></th>
+          
+          <th><h3><strong>Delete</strong></hh3></th>
+          <th><h3><strong>Reject<strong></h3></th> 
+        
+
+        </tr>
+      </thead>
+
+{%for i in read%}
+      <tr>
+     <td> <h4> <strong>{{i.id}} </strong></h4></td>
+     <td><h4> <strong> {{i.patient_name}} </strong></h4></td>
+    <td><h4><strong>{{i.phone_number}}</strong></h4></td>
+    <td> <h4><strong>{{i.email}} </strong></h4></td>
+    <td><h4><strong>{{i.date}}</strong></h4></td>
+
+    <td><h4><strong>{{i.gender}}</strong></h4></td>
+    <td><h4><strong>{{i.department}}</strong></h4></td>
+    <td><h4><strong>{{i.doctor}}</strong></h4></td>
+
+    <td><h4><strong>{{i.message}}</strong></h4></td>
+    <!-- <td><a href="{%url 'email' i.id%}" class="btn btn-info">Aprrove</a></td> -->
+   
+  <!-- <td> <h4> <a href="{%url 'delete' i.id%}" class="card-link btn btn-danger"> <strong>Delete</stronga></h4></td> -->
+   
+    <td><a class="btn btn-success btn-block" href="{%url 'approve' i.id%}">Approve</a></td>
+    <td><a class="btn btn-danger btn-block" href="{%url 'delete' i.id%}">Delete</a></td>
+    <td> <a href="{% url 'reject' i.id%}" class="btn btn-primary"><strong>Cancel</strong></a></td>
+  
+    </tr>
+{% endfor %}
+</table>
+
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% include 'footer.html' %}
+{% endblock %}

@@ -1,0 +1,197 @@
+{% block content%}
+<!DOCTYPE html>
+{% load static%}
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Services</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.jpg' %}" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+  
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <style>
+    /*--------------------------------------------------------------
+# Services
+--------------------------------------------------------------*/
+.services .icon-box {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.services .icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.5s;
+  color: #3fbbc0;
+  overflow: hidden;
+  box-shadow: 0px 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.services .icon i {
+  font-size: 36px;
+  line-height: 0;
+}
+
+.services .icon-box:hover .icon {
+  box-shadow: 0px 0 25px rgba(63, 187, 192, 0.3);
+}
+
+.services .title {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 18px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.services .title a {
+  color: #444444;
+  transition: 0.3s;
+}
+
+.services .title a:hover {
+  color: #3fbbc0;
+}
+
+.services .title::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: #3fbbc0;
+  bottom: 0;
+  left: calc(50% - 25px);
+}
+
+.services .description {
+  line-height: 24px;
+  font-size: 14px;
+}
+
+  </style>
+
+</head>
+
+<body>
+
+  
+<!-- ======= Services Section ======= -->
+<section id="services" class="services services">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Services</h2>
+        <h4>Hospital Services are the collective activities of all departments and all personnel of a hospital, which end-up in satisfactory patients care. Classification of hospital services have been proposed in diversified definitions, which do not completely agree with each other.
+        </h4>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon"><i class="fas fa-heartbeat"></i></div>
+          <h3 class="title"><a href="">Emergency</a></h3>
+          <h5>Treat acute conditions,injury and illness</h5>
+          <h5>Most common issues:injuries,chest pain</h5>
+          <h5>24 X 7 coverage and availability.</h5>
+          <h5>Equipment,Staff.</h5>
+
+          
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon"><i class="fas fa-pills"></i></div>
+          <h4 class="title"><a href="">Observation Care</a></h4>
+          <h5>Patients are observation on an outpatient basis inside the hospital.</h5>
+          <h5>Typically less then two days.</h5>
+          <h5>Billed and paid under Outpatient methodology.</h5>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon"><i class="fas fa-hospital-user"></i></div>
+          <h5 class="title"><a href="">Other Services & Departments</a></h5>
+          <h5 >Radiology example X-Rayes,MRI</h5>
+          <h5>Laboratory</h5>
+          <h5> >Hospital based Outpatient Clinic</h5>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon"><i class="fas fa-dna"></i></div>
+          <h4 class="title"><a href="">Common Continues Hospital Treat</a></h4>
+          <h5>Circulatory system 21 % </h5>
+          <h5>Musculoskeletal System 13% </h5>
+          <h5>Digestive System 11% </h5>
+          <h5>Nervous System 8% </h5>
+          <h5>Kidneys 8% </h5>
+          <h5>Infections 7% </h5>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon"><i class="fas fa-wheelchair"></i></div>
+          <h4 class="title"><a href="">Surgery</a></h4>
+          <h5>Operating room with sterile conditions</h5>
+          <h5>Equipment,Staff</h5>
+          <h5>Continues monitoring and treatment</h5>
+          <h5>Care for severe and life theatening illnesses</h5>
+        </div>
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon"><i class="fas fa-notes-medical"></i></div>
+          <h4 class="title"><a href="">pharmacy</a></h4>
+          <h5 class="description">The practice of pharmacy within the hospital under the supervision of a professional pharmacist is known as hospital pharmacy.</h5>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Services Section -->
+
+
+<!-- Vendor JS Files -->
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> -->
+</body>
+</html>	
+
+<br>
+<br>
+<br>
+<br>
+
+
+{% endblock%}
+
+
+
+

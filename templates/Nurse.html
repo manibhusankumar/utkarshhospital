@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+{% load static%}
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>New Nurse </title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.jpg' %}" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <style>
+	#mani{
+		margin-left: 100px;
+	}
+    .chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  border-radius: 25px;
+  margin-left: 35px;
+  background-color:wheat;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+
+
+</style>
+
+  
+</head>
+
+<body>
+
+
+	
+	
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
+      <div class="align-items-center d-none d-md-flex">
+        <i class="bi bi-clock"></i> Monday - Saturday, 8AM to 10PM
+      </div>
+      <div class="d-flex align-items-center">
+        <i class="bi bi-phone"></i> Call us now +91 9472843202
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <a href="#Home" class="logo me-auto"><img src="{% static 'assets/img/logo1.png' %}" alt=""></a>
+      
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+			
+          <li><a class="nav-link scrollto " href="{% url 'Read_Nurse'%}">Nurse Details</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'Admin'%}">Admin Dashboard</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
+
+          <!-- <li><a class="nav-link scrollto" href="#about"><i class="bi bi-file-earmark-person">About</i></a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#services"> <i class='fas fa-users'>Services</i></a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#departments"> <i class="fas fa-church">Departments</i></a></li> -->
+		  <div class="chip">
+            <img src="https://utkarshkart.com/wp-content/uploads/2020/09/App-Logo-1.png" alt="Person" width="96" height="96">
+            New Nurse
+          </div>
+		<!-- <div class="dropdown"> -->
+			
+			
+			
+		  <!-- </ul> -->
+		<!-- </div> -->    
+          
+        </ul>
+     
+      </nav><!-- .navbar -->
+    </div>
+  </header><!-- End Header -->
+<!-- Vendor JS Files -->
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+
+</body>
+</html>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+{% load widget_tweaks %}
+{% block content %}
+
+<head>
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+      
+    }
+
+    .form-content {
+      /* padding: 5%; */
+      border: 2px solid #ced4da;
+      margin-bottom: 2%;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 1%;
+      width: 20%;
+      cursor: pointer;
+      background: #0062cc;
+      color: #fff;
+    }
+    
+
+    .menu {
+      top: 50px;
+    } 
+    body
+		 {
+			margin: 0;
+			padding: 0;
+			height: 100%; 
+			background: url(http://sfwallpaper.com/images/white-wallpaper-hd-12.jpg) no-repeat;
+			background-size:cover;
+		}
+  </style>
+  {% if messages %}
+  {% for message in messages %}
+  {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+  
+  {% endfor %}
+  
+  {% endif %}
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+
+</head>
+<br>
+<div class="container-fluid">
+<!------ update page for Nurse   ---------->
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="container-fluid">
+    <div class="container-fluid">
+      <div class="note">
+      
+        <p class="m11">New Nurse </p>
+      
+      </div>
+      <div class="form-content">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="form-group">
+              
+                <label class="text-inverse font-12 text-uppercase">Nurse Name:</label>
+            
+              {% render_field form.name class="form-control" placeholder=" Enter Nurse Name" %}
+            </div>
+            <div class="form-group">
+                <label class="text-inverse font-12 text-uppercase">Phone_Number:</label>
+              {% render_field form.phone_number type="text" class="form-control" placeholder="Enter  phone_number" %}
+            </div>
+            <div class="form-group">
+                <label class="text-inverse font-12 text-uppercase">Email Address:</label>
+                {% render_field form.email type="text" class="form-control" id="exampleInputEmail" placeholder="Email Address" %}
+            </div>
+            <div class="form-group">
+                <label class="text-inverse font-12 text-uppercase">Address:</label>
+                {% render_field form.address type="text" class="form-control" id="exampleInputAddress" placeholder="Enter ddress" %}
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+                <label class="text-inverse font-12 text-uppercase">State:</label>
+
+                {% render_field form.state type="text" class="form-control" id="exampleInputState" placeholder="Enter Your State" %}
+                </div>
+                
+                <div class="form-group">
+                    <label class="text-inverse font-12 text-uppercase">Educational_Qualification:</label>
+                
+                {% render_field form.educational_qualification type="text" class="form-control" id="exampleInputState" placeholder="Enter Your Educational_Qualification" %}
+                </div>
+                
+                <div class="form-group">
+                    <label class="text-inverse font-12 text-uppercase">Experience:</label>
+                
+                {% render_field form.experience type="text" class="form-control" id="exampleInputState" placeholder="Enter Your experience" %}
+                </div>
+                <div class="form-group">
+                    <label class="text-inverse font-12 text-uppercase">Department:</label>
+                
+                {% render_field form.department type="text" class="form-control" id="exampleInputState" placeholder="Enter Your department" %}
+                </div>
+                <div class="form-group">
+                    <label class="text-inverse font-12 text-uppercase">Age:</label>
+                
+                {% render_field form.age type="text" class="form-control" id="exampleInputState" placeholder="Enter Your Age" %}
+                </div>
+                <div class="form-group">
+                    <label class="text-inverse font-12 text-uppercase">Shift</label>
+
+                    {% render_field form.shift type="text" class="form-control" id="exampleInputState" placeholder="Enter Your Shift" %}
+                    </div>     
+                
+            <div class="form-group">
+                <label class="text-inverse font-12 text-uppercase">Select image:</label>
+              {% render_field form.image class="form-control" placeholder="image" %}
+            </div>
+        
+      
+    
+  <button type="submit" class="btn btn-danger" style='margin-left: 35px; margin-bottom: 10px;'>Update</button>
+</form>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+{% include 'footer.html' %}
+
+
+{% endblock content %}
+
+
+
+
