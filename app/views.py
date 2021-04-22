@@ -370,4 +370,38 @@ def view_feedback_view(request):
 
 
 
+# Room Services 
+
+def Add_Room_Service(request):
+    if request.method=="POST":
+        form = Room_ServiceForm(request.POST or None,request.FILES or None)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"New Nurse Added.!")
+
+            return redirect(Admin)
+    else:
+        form = Room_ServiceForm()
+    return render(request,"Room_Service.html",{"form":form})
+
+def Add_Room_Service_Done(request):
+    return render(request,"Add_Room_Service_Done.html")
+
+
+def Read_Room_Service(request):
+    read=Room_Service.objects.all()
+    return render(request,"Read_Room_Service.html",{"read":read})
+
+
+
+def Update_Room_Service(request, pk):
+    upd=Nurse.objects.get(id=pk)
+    update = Room_ServiceForm(request.POST or None,request.FILES or None,instance=upd)
+    if update.is_valid():
+        update.save()
+        return redirect("Read_Room_Service")
+    return render(request,"Update_RoomService.html",{"update":update})    
+
+
+
 

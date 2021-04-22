@@ -41,6 +41,7 @@ class Approved(models.Model):
     patient_name = models.CharField(max_length=30, null=True)
     phone_number = models.BigIntegerField( null=True)
     email = models.EmailField(max_length=30, null=True)
+    address=models.CharField(max_length=100,null=True)
     date = models.DateTimeField( null=True)
     gender = models.ForeignKey(Gender,on_delete=models.CASCADE, null=True)
     department=models.ForeignKey(Department,on_delete=models.CASCADE, null=True)
@@ -58,6 +59,7 @@ class appointment(models.Model):
     patient_name = models.CharField(max_length=30, null=True)
     phone_number = models.BigIntegerField( null=True)
     email = models.EmailField(max_length=30, null=True)
+    address=models.CharField(max_length=100,null=True)
     date = models.DateTimeField( null=True)
     gender = models.ForeignKey(Gender,on_delete=models.CASCADE, null=True)
     department=models.ForeignKey(Department,on_delete=models.CASCADE, null=True)
@@ -81,7 +83,6 @@ class Nurse(models.Model):
     email = models.EmailField(max_length=30, null=True)
     address=models.CharField(max_length=100)
     state=models.CharField(max_length=20)
-    educational_qualification=models.CharField(max_length=100)
     experience=models.CharField(max_length=50)
     department = models.CharField(max_length=100, null=True)
     age = models.IntegerField()
@@ -101,9 +102,8 @@ class Compounder(models.Model):
     name = models.CharField(max_length=50)
     phone_number=models.IntegerField(null=True)
     email = models.EmailField(max_length=30, null=True)
-    address=models.CharField(max_length=100)
+    address=models.CharField(max_length=100,null=True)
     state=models.CharField(max_length=20)
-    educational_qualification=models.CharField(max_length=100)
     experience=models.CharField(max_length=50)
     department = models.CharField(max_length=100, null=True)
     age = models.IntegerField()
@@ -122,3 +122,18 @@ class Feedback(models.Model):
     message=models.CharField(max_length=100,null=True)
     def __str__(self):
         return self.name
+
+# Room service
+class Room_Service(models.Model):
+    room_number = models.IntegerField(null=True)
+    bed_number = models.IntegerField(null=True)
+    patient_name=models.CharField(max_length=100, null=True)
+    patient_age=models.IntegerField(null=True)
+    patient_gender=models.ForeignKey(Gender,on_delete=models.CASCADE, null=True)
+    staff_name=models.CharField(max_length=100,null=True)
+    
+    
+
+
+    def __str__(self):
+       return str(self.patient_name)

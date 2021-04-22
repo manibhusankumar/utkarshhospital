@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Nurses Details</title>
+  <title>Update Room Services </title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -36,11 +36,7 @@
 	#mani{
 		margin-left: 100px;
 	}
-  #text{
-    font-size: 20px;
-  }
-
-  .chip {
+    .chip {
   display: inline-block;
   padding: 0 25px;
   height: 50px;
@@ -48,7 +44,7 @@
   line-height: 50px;
   border-radius: 25px;
   margin-left: 35px;
-  background-color:gold;
+  background-color:rgb(243, 93, 113);
 }
 
 .chip img {
@@ -60,12 +56,22 @@
 }
 
 
+
 </style>
+{% if messages %}
+  {% for message in messages %}
+  {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+  
+  {% endfor %}
+  
+  {% endif %}
   
 </head>
 
 <body>
-	 
+
+
+	
 	
 
   <!-- ======= Top Bar ======= -->
@@ -75,7 +81,7 @@
         <i class="bi bi-clock"></i> Monday - Saturday, 8AM to 10PM
       </div>
       <div class="d-flex align-items-center">
-        <i class="bi bi-phone"></i> Call us now +91 9472843202
+        <i class="bi bi-phone"></i> Call us now +91 7004456570
       </div>
     </div>
   </div>
@@ -89,30 +95,29 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-			
-          <!-- <li><a class="nav-link scrollto " href="{% url 'Read_Nurse'%}"><i class="fa fa-home">Go Nurse Dashboard</i></a></li> -->
-          <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
+		<li><a class="nav-link scrollto " href="{% url 'Add_Room_Service'%}">Room Services</a></li>
           <li><a class="nav-link scrollto " href="{% url 'Admin'%}">Admin Dashboard</a></li>
-          <div class="chip">
+          <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
+
+          <!-- <li><a class="nav-link scrollto" href="#about"><i class="bi bi-file-earmark-person">About</i></a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#services"> <i class='fas fa-users'>Services</i></a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#departments"> <i class="fas fa-church">Departments</i></a></li> -->
+		  <div class="chip">
             <img src="https://utkarshkart.com/wp-content/uploads/2020/09/App-Logo-1.png" alt="Person" width="96" height="96">
-            Nurse Details
+            Update Room Services 
           </div>
-		
-
-          
-		
-
+		<!-- <div class="dropdown"> -->
 			
-		   
+			
+			
+		  <!-- </ul> -->
+		<!-- </div> -->    
           
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-	
-      </nav>
-      <!-- .navbar -->
+     
+      </nav><!-- .navbar -->
     </div>
-  </header>
-
+  </header><!-- End Header -->
 <!-- Vendor JS Files -->
 <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
 <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -121,48 +126,12 @@
 <script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
 <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
 
-
+<!-- Template Main JS File -->
 <script src="{% static 'assets/js/main.js' %}"></script>
 
 
 </body>
 </html>
-
-
-
-<br>
-<br>
-
-
-{% block content %}
-<head>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-  <style media="screen">
-    a:link {
-      text-decoration: none;
-    }
-
-    h1 {
-      text-align: center;
-      background-color:wheat;
-
-    }
-
-    .row {
-      margin: 100px;
-    }
-    #m2{
-      margin-left: 70px;
-      
-    }
-  </style>
-</head>
-<br>
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -170,55 +139,24 @@
 <br>
 
 
- <div class="table-responsive">
-  <div class="panel panel-primary">
-    <div class="container-fluid">
-      <h1><strong>Nurses Information</strong></h1>
-    </div>
-    
-<br>
-<br>
-
-<div class="row">
-  {%for i in read%}
-  <div class="col-sm-3">
-    <div  style="background-color: rgba(63, 187, 192, 0.5);">
-                <img class="card-img-top" src="{{i.image.url}}" alt="Card image cap" width="5%">
-      
-                <div class="card-body">
-                  <h2 style="color: rgb(238, 54, 85);" id="m2"> <span><strong><u>About Nurse</u></strong></span></h2>
-                  <!-- <h6 class="card-subtitle mb-2 text-muted">Your Post</h6> -->
-                  <h4> Nurse_Id:<strong >{{i.id}} </strong></h4> 
-                  
-                  <h4> Nurse_Name :<strong >{{i.name}}</strong></h4>
-                  
-                  <h4> Mobile Number :<strong>{{i.phone_number}} </strong></h4>
-                  <h4> Email :<strong>{{i.email}} </strong></h4>
-                  <h4> Address :<strong>{{i.address}} </strong></h4>
-                  <h4> State :<strong>{{i.state}} </strong></h4>
-                  <h4> Experience :<strong>{{i.experience}} </strong></h4>
-                  <h4> Department :<strong>{{i.department}} </strong></h4>
-                  <h4>Age:<strong>{{i.age}} </strong></h4>
-                  <h4> Shift :<strong>{{i.shift}} </strong></h4>
-                  
-                                    
-                  <a href="{%url 'Update_Nurse' i.id%}" class="card-link btn btn-success">Update</a></h6>
-                  <a href="{%url 'Nurse_Delate' i.id%}" class="card-link btn btn-warning">Delate</a></h6>
-                  
-                </div>
-              </div>
-              </div>
-              <br>
-              <br>
-              {% endfor %}
-            </div>
-
-    
-<br>
-<br>
-<br>
 
 
-<br>
+
+{% block content%}
+
+
+<form action="{% url 'Update_Room_Service:edit'pk=update.instance.pk %}"method="POST" enctype="multipart/form-data">
+    {%load crispy_forms_tags%}
+    {%csrf_token%}
+    {{update|crispy}}
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
 {% include 'footer.html' %}
-{% endblock %}
+
+
+{% endblock content %}
+
+
+
+

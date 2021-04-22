@@ -49,3 +49,15 @@ class FeedbackForm(forms.ModelForm):
     class Meta:
         model= Feedback
         fields= "__all__"
+
+
+# Room service
+
+class Room_ServiceForm(forms.ModelForm):
+    class Meta:
+        model = Room_Service
+        fields = "__all__"
+                
+
+
+                

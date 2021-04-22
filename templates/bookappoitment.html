@@ -213,6 +213,12 @@
 				{{form.email}}
 			  </div>
 			  
+			  <div class="form-row border-bottom p-4">
+				<label class="text-inverse font-12 text-uppercase"> Address</label>
+				<!-- <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Enter your Email Address" /> -->
+				{{form.address}}
+			  </div>
+			  
 			  <div class="form-row border-bottom p-4 position-relative">
 				<label class="text-inverse font-12 text-uppercase">Booking Date</label>
 				<div class="input-group date">
@@ -272,10 +278,12 @@
 
 <!-- //Query All input fields
 var form_fields = document.getElementsByTagName('input')
-form_fields[1].placeholder='Enter patient_name..';
-form_fields[2].placeholder='Enter your Email Address..';
-form_fields[3].placeholder='Enter your Phone Number...';
-form_fields[4].placeholder='Select the Appointment Date...';
+form_fields[1].placeholder='Enter Patient Name..';
+form_fields[2].placeholder='Enter Your Phone Number...';
+form_fields[3].placeholder='Enter Your Email Address..';
+form_fields[4].placeholder='Enter Your  Address..';
+
+form_fields[5].placeholder='Select The Appointment Date...';
 
 
 for (var field in form_fields){	

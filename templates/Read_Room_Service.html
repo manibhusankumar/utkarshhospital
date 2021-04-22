@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Nurses Details</title>
+  <title>View Room Services</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,7 +39,6 @@
   #text{
     font-size: 20px;
   }
-
   .chip {
   display: inline-block;
   padding: 0 25px;
@@ -48,7 +47,7 @@
   line-height: 50px;
   border-radius: 25px;
   margin-left: 35px;
-  background-color:gold;
+  background-color:yellowgreen;
 }
 
 .chip img {
@@ -58,6 +57,7 @@
   width: 50px;
   border-radius: 50%;
 }
+
 
 
 </style>
@@ -84,35 +84,39 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <a href="#Home" class="logo me-auto"><img src="{% static 'assets/img/logo1.png' %}" alt=""></a>
+      <a href="{% url 'Home'%}" class="logo me-auto"><img src="{% static 'assets/img/logo1.png' %}" alt=""></a>
       
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
 			
-          <!-- <li><a class="nav-link scrollto " href="{% url 'Read_Nurse'%}"><i class="fa fa-home">Go Nurse Dashboard</i></a></li> -->
-          <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
           <li><a class="nav-link scrollto " href="{% url 'Admin'%}">Admin Dashboard</a></li>
-          <div class="chip">
-            <img src="https://utkarshkart.com/wp-content/uploads/2020/09/App-Logo-1.png" alt="Person" width="96" height="96">
-            Nurse Details
-          </div>
-		
-
+          <li><a class="nav-link scrollto " href="{% url 'Add_Room_Service'%}">Room Services</a></li>
           
-		
+          
+          <!-- <li><a class="nav-link scrollto " href="{% url 'Admin'%}">Admin Home</a></li> -->
+          <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
+
+          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#departments">Departments</a></li> -->
+		  <div class="chip">
+            <img src="https://utkarshkart.com/wp-content/uploads/2020/09/App-Logo-1.png" alt="Person" width="96" height="96">
+            View Room Services
+          </div>
+
+         
 
 			
-		   
+			
+		 
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-	
-      </nav>
-      <!-- .navbar -->
+		
+      </nav><!-- .navbar -->
     </div>
-  </header>
-
+  </header><!-- End Header -->
 <!-- Vendor JS Files -->
 <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
 <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -121,7 +125,7 @@
 <script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
 <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
 
-
+<!-- Template Main JS File -->
 <script src="{% static 'assets/js/main.js' %}"></script>
 
 
@@ -154,10 +158,6 @@
     .row {
       margin: 100px;
     }
-    #m2{
-      margin-left: 70px;
-      
-    }
   </style>
 </head>
 <br>
@@ -168,57 +168,57 @@
 <br>
 <br>
 <br>
+<br>
 
 
- <div class="table-responsive">
+<div class="table-responsive">
   <div class="panel panel-primary">
     <div class="container-fluid">
-      <h1><strong>Nurses Information</strong></h1>
+      <h1><strong>Room Services Record</strong></h1>
     </div>
-    
-<br>
-<br>
+    <table class="table table-bordered">
+      <thead>
+        <tr class="table-success">
 
-<div class="row">
-  {%for i in read%}
-  <div class="col-sm-3">
-    <div  style="background-color: rgba(63, 187, 192, 0.5);">
-                <img class="card-img-top" src="{{i.image.url}}" alt="Card image cap" width="5%">
-      
-                <div class="card-body">
-                  <h2 style="color: rgb(238, 54, 85);" id="m2"> <span><strong><u>About Nurse</u></strong></span></h2>
-                  <!-- <h6 class="card-subtitle mb-2 text-muted">Your Post</h6> -->
-                  <h4> Nurse_Id:<strong >{{i.id}} </strong></h4> 
-                  
-                  <h4> Nurse_Name :<strong >{{i.name}}</strong></h4>
-                  
-                  <h4> Mobile Number :<strong>{{i.phone_number}} </strong></h4>
-                  <h4> Email :<strong>{{i.email}} </strong></h4>
-                  <h4> Address :<strong>{{i.address}} </strong></h4>
-                  <h4> State :<strong>{{i.state}} </strong></h4>
-                  <h4> Experience :<strong>{{i.experience}} </strong></h4>
-                  <h4> Department :<strong>{{i.department}} </strong></h4>
-                  <h4>Age:<strong>{{i.age}} </strong></h4>
-                  <h4> Shift :<strong>{{i.shift}} </strong></h4>
-                  
-                                    
-                  <a href="{%url 'Update_Nurse' i.id%}" class="card-link btn btn-success">Update</a></h6>
-                  <a href="{%url 'Nurse_Delate' i.id%}" class="card-link btn btn-warning">Delate</a></h6>
-                  
-                </div>
-              </div>
-              </div>
-              <br>
-              <br>
-              {% endfor %}
-            </div>
+          <th><h3><strong>Room Number</strong></h3></th>
+          <th><h3><strong>Bed Number</strong> </h3></th>
+          <th><h3><strong>Patient Name</strong></h3></th>
+          <th><h3><strong>patient age</strong></h3></th>
+          <th><h3><strong>Patient Gender</strong></h3></th>
+          <th><h3><strong>Nurse/Compounder Name</strong></h3></th>
+          
+          
+            
+
+          
+  
+        
+
+        </tr>
+      </thead>
+
+{%for i in read%}
+      <tr>
+     <td> <h4> <strong>{{i.room_number}} </strong></h4></td>
+     <td><h4> <strong> {{i.bed_number}} </strong></h4></td>
+    <td><h4><strong>{{i.patient_name}}</strong></h4></td>
+    <td> <h4><strong>{{i.patient_age}} </strong></h4></td>
+    <td><h4><strong>{{i.patient_gender}}</strong></h4></td>
+    <td><h4><strong>{{i.staff_name}}</strong></h4></td>
 
     
-<br>
-<br>
-<br>
+  
+    </tr>
+{% endfor %}
+</table>
 
-
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
 <br>
 {% include 'footer.html' %}
 {% endblock %}
+

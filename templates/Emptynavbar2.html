@@ -88,14 +88,14 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-			
-          <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
+          {%if request.user.is_authenticated%}
+          <li><a class="nav-link scrollto " href="{% url 'Add_Room_Service'%}"> Add Room Services</a></li>
 
-          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+          <li><a class="nav-link scrollto" href="{% url 'Read_Room_Service'%}">View Room Services</a></li>
           <!-- <li><a class="nav-link scrollto" href="#">Services</a></li> -->
           <!-- <li><a class="nav-link scrollto" href="#departments"> Departments</a></li> -->
 		  <!-- <li><a class="nav-link scrollto" href="#contact">contact</a></li> -->
-      {%if request.user.is_authenticated%}
+      
       <li><a href="{% url 'Actions_Appointment'%}">Pending Appointments</a></li>
 	  <li><a href="{% url 'Ensure'%}">ENSURE</a></li>
     <li><a href="{% url 'view-feedback'%}">View Feedback</a></li>
@@ -109,7 +109,7 @@
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-		{%if request.user.is_authenticated%}
+		<!-- {%if request.user.is_authenticated%}
     <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-person-check-fill text-primary" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="mani">
       <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
     </svg>
@@ -122,7 +122,7 @@
     <strong class="text-danger">
     {{request.user}}
     </strong>
-    {% endif%}
+    {% endif%} -->
       </nav><!-- .navbar -->
     </div>
   </header><!-- End Header -->

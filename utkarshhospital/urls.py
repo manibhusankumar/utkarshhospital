@@ -62,6 +62,12 @@ urlpatterns = [
     path("Compounder_Delate/<int:id>",views.Compounder_Delate,name="Compounder_Delate"),
 	path('send-feedback', views.send_feedback_view,name='send-feedback'),
     path('view-feedback', views.view_feedback_view,name='view-feedback'),
+
+	# Room Services
+	path("Add_Room_Service/",views.Add_Room_Service,name="Add_Room_Service"),
+    path("Add_Room_Service_Done/",views.Add_Room_Service_Done,name="Add_Room_Service_Done"),
+    path("Read_Room_Service/",views.Read_Room_Service,name="Read_Room_Service"),
+    path("edit/<int:id>",views.Update_Room_Service,name="edit"),
 	
 
 
