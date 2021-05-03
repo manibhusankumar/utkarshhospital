@@ -1,20 +1,40 @@
 from django import forms
 from . models import * 
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import appointment
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
+from .import models
 
 
-class SignUpForm(UserCreationForm):
+# class SignUpForm(UserCreationForm):
+#     class Meta:
+#         model = User   
+#         fields =("username",'email',"password1","password2")
+#     username = forms.CharField(widget=forms.TextInput())
+#     password1 = forms.CharField(widget=forms.PasswordInput())
+#     password2 = forms.CharField(widget=forms.PasswordInput())
+#     email = forms.EmailField(widget=forms.TextInput())
+
+
+class DoctorUserForm(forms.ModelForm):
     class Meta:
-        model = User   
-        fields =("username",'email',"password1","password2")
-    username = forms.CharField(widget=forms.TextInput())
-    password1 = forms.CharField(widget=forms.PasswordInput())
-    password2 = forms.CharField(widget=forms.PasswordInput())
-    email = forms.EmailField(widget=forms.TextInput())
+        model=User
+        fields=['first_name','last_name','username','password','email']
+        widgets = {
+        'password': forms.PasswordInput()
+        }
+class DoctorForm(forms.ModelForm):
+    class Meta:
+        model=models.Doctorlist
+        fields=['address','mobile', 'gender','department','degree','profile_pic','resume']
+
+
+
+
+
+
 
 class AppointmentForm(forms.ModelForm):
     class Meta:
@@ -57,6 +77,20 @@ class Room_ServiceForm(forms.ModelForm):
     class Meta:
         model = Room_Service
         fields = "__all__"
+
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+class DataTreinoForm(forms.ModelForm):
+    class Meta:
+        model = models.appointment
+        fields ="__all__"
+        widgets = {
+            'dateField': DateInput
+        }
+
+
                 
 
 

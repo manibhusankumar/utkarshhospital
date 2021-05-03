@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>View Appointments</title>
+  <title>Confirm  appointment</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,6 +39,29 @@
   #text{
     font-size: 20px;
   }
+
+  .maniG{
+  display: inline-block;
+  padding: 0 25px;
+  height: 50px;
+  font-size: 10px;
+  line-height: 50px;
+  border-radius: 25px;
+  margin-left: 30px;
+  background-color:rgba(63, 187, 192, 0.5);
+}
+.maniG img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+#logo{
+  margin-right:5px;
+  margin-top: 10px;
+}
+
 </style>
   
 </head>
@@ -67,44 +90,29 @@
       
 
       <nav id="navbar" class="navbar order-last order-lg-0">
-        <ul>
+        <ul id="esure">
 			
-          <li><a class="nav-link scrollto " href="{% url 'Admin'%}">Admin Dashboard</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
 
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#departments">Departments</a></li>
-		  <li><a class="nav-link scrollto" href="#contact">contact</a></li>
-		<!-- <div class="dropdown"> -->
-			
+    
+      <!-- {%if request.user.is_authenticated%} -->
+      <li><a href="{% url 'Confirm_Doctor'%}">Doctor Dashboard</a></li>
+      <li><a href="#">Confirm Appointments List</a></li>
+	  <!-- <li><a href="{% url 'Ensure'%}">ENSURE</a></li> -->
+      
+    <!-- <div class="maniG">
+      <img src="https://previews.123rf.com/images/alexwhite/alexwhite1212/alexwhite121201118/16809932-logout-blue-glossy-icon-on-white-background.jpg" alt="Person" width="90" height="90">
+      <a href="#" id="logo"><h5>Confirm Appointments list</h5></a>
 
-			
-			<!-- {%if request.user.is_superuser%}
-          <li><a class="nav-link scrollto" href="#">Admin</a></li>
-		  {% endif %} -->
-		  <!-- <ul class="dropdown-menu" aria-labelledby="Profile"> -->
-
-			
-			
-		  <!-- </ul> -->
-		<!-- </div> -->    
+    </div> -->
+	
+			<!-- {% endif%} -->
+       
+		
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-		{%if request.user.is_authenticated%}
-    <svg width="5em" height="5em" viewBox="0 0 16 16" class="bi bi-person-check-fill text-primary" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="mani">
-      <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-    </svg>
-    <strong class="text-warning" id="text">
-      {{request.user}}</strong>
-    {%else%}
-    <svg width="5em" height="5em" viewBox="0 0 16 16" class="bi bi-person-x-fill text-info" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="mani">
-      <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
-    </svg>
-    <strong class="text-danger" id="text">
-    {{request.user}}
-    </strong>
-    {% endif%}
+		
       </nav><!-- .navbar -->
     </div>
   </header><!-- End Header -->
@@ -134,13 +142,14 @@
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link href="{% static 'web/css/style.css'%}" rel='stylesheet' type='text/css' />
 
   <style media="screen">
     a:link {
       text-decoration: none;
     }
 
-    h1 {
+    /* h1 {
       text-align: center;
       background-color:wheat;
 
@@ -148,77 +157,65 @@
 
     .row {
       margin: 100px;
-    }
+    } */
   </style>
 </head>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 
 <div class="table-responsive">
-  <div class="panel panel-primary">
-    <div class="container-fluid">
-      <h1><strong>Appointments</strong></h1>
-    </div>
-    <table class="table table-bordered">
+  <!-- <div class="panel panel-primary"> -->
+    <!-- <div class="container-fluid">
+      <h1><strong>All Apply Doctor Record</strong></h1>
+    </div> -->
+    <!-- <h1> Apply Job Form </h1> -->
+    <!-- <div class="bg-agile"> -->
+	<div class="book-appointment">
+	<h2 style="margin-top:90px;">Confirm Appointments</h2>
+</div>
+    <table class="table table-bordered" style="background-color:white;">
       <thead>
         <tr class="table-success">
 
-          <th><h3><strong>Id</strong></h3></th>
-          <th><h3><strong>Patient Name</strong> </h3></th>
-          <th><h3><strong>Phone Name</strong></h3></th>
-          <th><h3><strong>Email Address</strong></h3></th>
-          <th><h3><strong>Address</strong></h3></th>
-          <th><h3><strong>Date</strong></h3></th>
-          <th><h3><strong>Gender</strong</h3></th>
-          <th><h3><strong>Department<strong></h3></th>
-          <th><h3><strong>Doctor<strong></h3></th>
-          
+          <th><h5><strong>Id</strong></h5></th>
+          <th><h5><strong>Patient Name</strong> </h5></th>
+          <th><h5><strong>Phone Name</strong></h5></th>
+          <th><h5><strong>Email Address</strong></h5></th>
+          <!-- <th><h5><strong>Address</strong></h5></th> -->
+          <th><h5><strong>Date</strong></h5></th>
+          <th><h5><strong>Gender</strong</h5></th>
+          <th><h5><strong>Department<strong></h5></th>
+          <th><h5><strong>Doctor<strong></h5></th>
+          <th><h5><strong>Appointment Status<strong></h5></th>
+          <th><h5><strong>Message<strong></h5></th>
             
-
-          <th><h3><strong>Message<strong></h3></th>
   
         
 
         </tr>
       </thead>
 
-{%for i in read%}
+{%for i in a%}
       <tr>
      <td> <h4> <strong>{{i.id}} </strong></h4></td>
      <td><h4> <strong> {{i.patient_name}} </strong></h4></td>
-    <td><h4><strong>{{i.phone_number}}</strong></h4></td>
+    <td><h4><strong>{{i.mobile}}</strong></h4></td>
     <td> <h4><strong>{{i.email}} </strong></h4></td>
-    <td> <h4><strong>{{i.address}} </strong></h4></td>
+    <!-- <td> <h4><strong>{{i.address}} </strong></h4></td> -->
     <td><h4><strong>{{i.date}}</strong></h4></td>
 
     <td><h4><strong>{{i.gender}}</strong></h4></td>
     <td><h4><strong>{{i.department}}</strong></h4></td>
     <td><h4><strong>{{i.doctor}}</strong></h4></td>
-
-
-    
+    <td><h4><strong>{{i.select}}</strong></h4></td>
 
     <td><h4><strong>{{i.message}}</strong></h4></td>
     
-  
+    
     </tr>
 {% endfor %}
 </table>
 
 </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 {% include 'footer.html' %}
 {% endblock %}

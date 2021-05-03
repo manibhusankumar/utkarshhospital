@@ -7,10 +7,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Admin Dashboard</title>
+  <link href="{% static 'web/css/style.css'%}" rel='stylesheet' type='text/css' />
   <link rel="stylesheet" href="{% static 'style.css'%}">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style type="text/css">
+  
   	@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro")
 body{
     font-family: 'Crimson Pro', serif;
@@ -105,13 +107,13 @@ label #cancel{
 #check:checked ~ section{
 margin-left:250px;
 }
-.section{
+/* .section{
 background: url("{% static 'assets/img/slide/slide-2.jpg'%}");
 background-size: cover;
 background-position:center;
 height:100vh;
 transition:all .5s;
-}
+} */
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Pro")
 body{
     font-family: 'Crimson Pro', serif;
@@ -155,11 +157,11 @@ body{
         padding-left:50px;
 		color:crimson;
     }
-    .section{
+    /* .section{
     background: url(https://wallpapercave.com/wp/wp1848586.jpg);
 	no-repeat;
 			background-size:cover;
-    }
+    } */
 
 
     .column {
@@ -238,13 +240,13 @@ body{
 	  <!-- <li><a href="{% url 'Actions_Appointment'%}"> <i class="bi bi-book-fill">CRUD_Appointment</i></a></li>
 	  <li><a href="{% url 'Ensure'%}"> <i class="fa fa fa-user">ENSURE </i></a></li> -->
 	<!-- <li><a href="{% url 'Admin_logout'%}"><i class="fa fa-user-plus">LOGOUT</i></a></li> -->
-	<li><a href="{% url 'Add_Doctor'%}"><i class="fa fa-user-plus">New Doctor Added</i></a></li>
+	<li><a href="{% url 'Add_Doctor'%}"><i class="fa fa-user-md">New Doctor Added</i></a></li>
 	<li><a href="{% url 'Read_doctors'%}"><i class="fa fa-user-plus"> View Doctors Details</i></a></li>
 	<li><a href="{% url 'Add_Nurse'%}"><i class="fa fa-user-plus">New Nurse Added</i></a></li>
 	<li><a href="{% url 'Read_Nurse'%}"><i class="fa fa-user-plus"> View Nurses Details</i></a></li>
 	<li><a href="{% url 'Add_Compounder'%}"><i class="fa fa-user-plus">New Compounder Added</i></a></li>
 	<li><a href="{% url 'Read_Compounder'%}"><i class="fa fa-user-plus"> View Compounders Details</i></a></li>
-      <!-- <li><a href="#"><i class="fa fa fa-user">PATIENTS_INFO</i></a></li> -->
+      <!-- <li><a href="{% url 'DoctorApproval'%}"><i class="fa fa fa-user">Doctor Approval</i></a></li> -->
 		{% else%}
 
 	  <li><a href="{% url 'login'%}"><i class="fa fa fa-user">Admin Login</i></a></li>

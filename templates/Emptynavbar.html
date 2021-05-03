@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Admin Dashboard</title>
+  <title>Utkarsh Hospital</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -31,6 +31,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'web/css/style.css'%}" rel='stylesheet' type='text/css' />
   
 </head>
 
@@ -63,11 +64,28 @@
         <ul>
 			
           <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
-
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li>
+            <a class="nav-link scrollto " href="#">
+          {%if request.user.is_authenticated%}
+          <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-person-check-fill text-primary" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="mani">
+            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+          </svg>
+          <strong class="text-warning">
+            {{request.user}}</strong>
+          {%else%}
+          <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-person-x-fill text-primary" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="mani">
+            <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+          </svg>
+          <strong class="text-primary">
+          {{request.user}}
+          </strong>
+          {% endif%} 
+        </a>
+        </li>
+          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
           <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
-          <li><a class="nav-link scrollto" href="#departments">Departments</a></li>
-		  <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#departments">Departments</a></li> -->
+		  <!-- <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
 
 		  
 			</ul>
@@ -75,21 +93,8 @@
            
           
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-		{%if request.user.is_authenticated%}
-    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-person-check-fill text-primary" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="mani">
-      <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-    </svg>
-    <strong class="text-warning">
-      {{request.user}}</strong>
-    {%else%}
-    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-person-x-fill text-primary" fill="currentColor" xmlns="http://www.w3.org/2000/svg" id="mani">
-      <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
-    </svg>
-    <strong class="text-primary">
-    {{request.user}}
-    </strong>
-    {% endif%}
+        <i class="bi bi-list mobile-nav-toggle"></i> 
+	
       </nav>
       <!-- .navbar -->
 	 

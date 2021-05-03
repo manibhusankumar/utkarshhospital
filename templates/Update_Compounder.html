@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% block content%}
 {% load static%}
 
 <html lang="en">
@@ -119,15 +120,58 @@
 <br>
 <br>
 
+<br>
+<br>
+<br>
+<br>
 
 
 
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  <!-- Fengyuan Chen's Datepicker -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css" integrity="sha256-b88RdwbRJEzRx95nCuuva+hO5ExvXXnpX+78h8DjyOE=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js" integrity="sha256-/7FLTdzP6CfC1VBAj/rsp3Rinuuu9leMRGd354hvk0k=" crossorigin="anonymous"></script>
+
+  <!DOCTYPE HTML>
+{% load static%}
+<html>
+<head>
+<title>Doctor SignUp</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Medical Appointment Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs Sign up Web Templates, 
+ Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Custom Theme files -->
+<link href="{% static 'web/css/wickedpicker.css'%}" rel="stylesheet" type='text/css' media="all" />
+<link href="{% static 'web/css/style.css'%}" rel='stylesheet' type='text/css' />
+<!--fonts--> 
+<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  <!-- Fengyuan Chen's Datepicker -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.css" integrity="sha256-b88RdwbRJEzRx95nCuuva+hO5ExvXXnpX+78h8DjyOE=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.5/datepicker.min.js" integrity="sha256-/7FLTdzP6CfC1VBAj/rsp3Rinuuu9leMRGd354hvk0k=" crossorigin="anonymous"></script>
+<!--//fonts-->
 {% load widget_tweaks %}
-{% block content %}
+<html lang="en" dir="ltr">
 
 <head>
-  <style media="screen">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <style type="text/css">
+
+    body {
+      color: white;
+      background-color: #b6bde7;
+      font-family: 'Roboto', sans-serif;
+    }
+
     a:link {
       text-decoration: none;
     }
@@ -135,141 +179,220 @@
     .note {
       text-align: center;
       height: 80px;
-      background: -webkit-linear-gradient(left, #0072ff, #8811c5);
+      background: -webkit-linear-gradient(left, hsl(150, 100%, 50%), #8811c5);
       color: #fff;
       font-weight: bold;
       line-height: 80px;
-      
     }
 
-    .form-content {
-      /* padding: 5%; */
-      border: 2px solid #ced4da;
+    /* .form-content {
+      padding: 5%;
+      border: 1px solid #ced4da;
       margin-bottom: 2%;
     }
 
     .form-control {
       border-radius: 1.5rem;
-    }
+    } */
 
     .btnSubmit {
       border: none;
       border-radius: 1.5rem;
-      padding: 1%;
-      width: 20%;
+      padding: 2%;
+      width: 18%;
       cursor: pointer;
-      background: #0062cc;
+      background:darkcyan;
       color: #fff;
+	  text-align: center;
+	  margin-left: 35%;
+	  
     }
-    
+	.form-control{
+		background-color: rgba(127, 178, 212, 0.31);
+	}
+	.form-control1{
+		background-color: rgba(127, 178, 212, 0.31);
+	}
+	#messag{
+		
+		padding: 2%;
+		width: 100%;
+		
+		margin-left: 50px;
+		border: 1px solid rgba(255, 255, 255, 0.)
 
-    .menu {
-      top: 50px;
-    } 
-    body
-		 {
-			margin: 0;
-			padding: 0;
-			height: 100%; 
-			background: url(http://sfwallpaper.com/images/white-wallpaper-hd-12.jpg) no-repeat;
-			background-size:cover;
-		}
+	}
+	
+	
   </style>
 
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<br>
-<br>
-<br>
-<div class="container-fluid">
-<!------ update page for Nurse   ---------->
-<form method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
-  <div class="container-fluid">
-    <div class="container-fluid">
-      <div class="note">
-      
-        <p class="m11">Update Compounder Details</p>
-      
-      </div>
-      <div class="form-content">
-        <div class="row">
-          <div class="col-md-9">
+<body>
+	<h1> Update Compounder </h1>
+    <div class="bg-agile">
+	<div class="book-appointment">
+	<h2>Welcome Utkarsh Hospital</h2>
+
+  <form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<!-- <div class="container register-form">
+		  <div class="form"> -->
+			<!-- <div class="note">
+			  <p>Register In Hospital</p>
+			</div>
+	 -->
+			<div class="form-content">
+			  <div class="row">
+				<div class="col-md-6">
+				  
             <div class="form-group">
               
-                <label class="text-inverse font-12 text-uppercase">Compounder Name:</label>
+                <!-- <label class="text-inverse font-12 text-uppercase"</label> -->
+                  <p>Compounder Name*</p>
             
-              {% render_field update.name class="form-control" placeholder=" Enter Compounder Name" %}
+              {% render_field update.name class="form-control" placeholder=" Enter The Compounder Name..." %}
             </div>
+            <br>
             <div class="form-group">
-                <label class="text-inverse font-12 text-uppercase">Phone_Number:</label>
-              {% render_field update.phone_number type="text" class="form-control" placeholder="Enter  phone_number" %}
+                <!-- <label class="text-inverse font-12 text-uppercase">:</label> -->
+                <p>Mobile number*</p>
+              {% render_field update.phone_number type="text" class="form-control" placeholder="Enter The Mobile Number...." %}
             </div>
+            <br>
+            
             <div class="form-group">
-                <label class="text-inverse font-12 text-uppercase">Email Address:</label>
-                {% render_field update.email type="text" class="form-control" id="exampleInputEmail" placeholder="Email Address" %}
+                <!-- <label class="text-inverse font-12 text-uppercase">Educational_Qualification:</label> -->
+                <p>Department*</p>
+                {% render_field update.department type="text" class="form-control" id="exampleInputEmail" placeholder="Enter The Department...." %}
             </div>
+            <br>
             <div class="form-group">
-                <label class="text-inverse font-12 text-uppercase">Address:</label>
-                {% render_field update.address type="text" class="form-control" id="exampleInputAddress" placeholder="Enter Address" %}
+              <!-- <label class="text-inverse font-12 text-uppercase">Language:</label> -->
+              <p>state*</p>
+
+              {% render_field update.state type="text" class="form-control" id="exampleInputState" placeholder="Enter The State ..." %}
+              </div>
+              <br>
+            <div class="form-group">
+                <!-- <label class="text-inverse font-12 text-uppercase">Educational_Qualification:</label> -->
+                <p>Shift*</p>
+                {% render_field update.shift type="text" class="form-control" id="exampleInputEmail" placeholder="Enter The Shift ..." %}
+            </div>
+            
+             
           </div>
+          <br>
           <div class="col-md-6">
+
             <div class="form-group">
-                <label class="text-inverse font-12 text-uppercase">State:</label>
+              <!-- <label class="text-inverse font-12 text-uppercase">:</label> -->
+              <p>Email address*</p>
+            {% render_field update.email type="text" class="form-control" placeholder="Enter The Email Address..." %}
+          </div>
+          <br>
 
-                {% render_field update.state type="text" class="form-control" id="exampleInputState" placeholder="Enter Your State" %}
-                </div>
-                
-                
-                <div class="form-group">
-                    <label class="text-inverse font-12 text-uppercase">Experience:</label>
-                
-                {% render_field update.experience type="text" class="form-control" id="exampleInputState" placeholder="Enter Your experience" %}
-                </div>
-                <div class="form-group">
-                    <label class="text-inverse font-12 text-uppercase">Department:</label>
-                
-                {% render_field update.department type="text" class="form-control" id="exampleInputState" placeholder="Enter Your department" %}
-                </div>
-                <div class="form-group">
-                    <label class="text-inverse font-12 text-uppercase">Age:</label>
-                
-                {% render_field update.age type="text" class="form-control" id="exampleInputState" placeholder="Enter Your Age" %}
-                </div>
-                <div class="form-group">
-                    <label class="text-inverse font-12 text-uppercase">Shift</label>
-
-                    {% render_field update.shift type="text" class="form-control" id="exampleInputState" placeholder="Enter Your Shift" %}
-                    </div> 
-
-                    <div class="form-group">
-                      <label class="text-inverse font-12 text-uppercase">JoiningDate</label>
-  
-                      {% render_field update.joining_date type="text" class="form-control" id="exampleInputState" placeholder="Enter joining_date" %}
-                      </div>          
-                
             <div class="form-group">
-                <label class="text-inverse font-12 text-uppercase">Select image:</label>
-              {% render_field update.image class="form-control" placeholder="image" %}
+                <!-- <label class="text-inverse font-12 text-uppercase">Language:</label> -->
+                <p>Address*</p>
+
+                {% render_field update.address type="text" class="form-control" id="exampleInputState" placeholder="Enter The Address ..." %}
+                </div>
+                <br>
+
+                <div class="form-group">
+                  <!-- <label class="text-inverse font-12 text-uppercase">Experience:</label> -->
+                  <p>Experience*</p>
+                  {% render_field update.experience type="text" class="form-control" id="exampleInputAddress" placeholder="Enter  The Experience..." %}
             </div>
-        
+
+           
+                <br>
+            <div class="form-group">
+                <!-- <label class="text-inverse font-12 text-uppercase">Language:</label> -->
+                <p>Age*</p>
+
+                {% render_field update.age type="text" class="form-control" id="exampleInputState" placeholder="Enter The Age ..." %}
+                </div>
+                <br>
+                
+                <div class="form-group">
+                    <!-- <label class="text-inverse font-12 text-uppercase">Fees:</label> -->
+                    <p>JoiningDate*</p>
+                
+                {% render_field update.joining_date type="text" class="form-control" id="exampleInputState" placeholder="Enter The mm/dd/yyyy ..." %}
+                </div>
+                <br>
+                
+               
+
+                <div class="col-sm-11">
+                <div class="form-group" style="border-bottom: 2px solid #ee9f0d;">
+
+                  <!-- <label class="text-inverse font-12 text-uppercase">Select image:</label> -->
+                  <p>Select image*</p>
+                {% render_field update.image class="form-control" placeholder="Select image" %}
+              </div>
+              </div>
+                
+            
+            </div>
       
-    
-  <button type="submit" class="btn btn-danger" style='margin-left: 35px; margin-bottom: 10px;'>Update Compounder</button>
+            <br>
+            <br>
+            <br>
+          
+            
+            <div style="margin-top:35px;">
+            <button type="submit" class="btnSubmit">Done</button>
+          </div>
+  
 </form>
 </div>
 </div>
-</div>
+
 <br>
 <br>
 <br>
+<br>
+<script type="text/javascript" src="{% static 'web/js/jquery-2.1.4.min.js'%}"></script>
+		<script type="text/javascript" src="{% static 'web/js/wickedpicker.js'%}"></script>
+			<script type="text/javascript">
+				$('.timepicker').wickedpicker({twentyFour: false});
+			</script>
+		<!-- Calendar -->
+				<link rel="stylesheet" href="{% static 'web/css/jquery-ui.css'%}" />
+				<script src="{% static 'web/js/jquery-ui.js'%}"></script>
+				  <!-- <script>
+						  $(function() {
+							$( "#datepicker,#datepicker1,#datepicker2,#datepicker3" ).datepicker();
+						  });
+				  </script> -->
+			<!-- //Calendar -->
+
+</body>
+</html>
+
+	 
+  </div>
+  <br>
+	</div>
+
+<script src="{% static 'sidebar-10/js/jquery.min.js'%}"></script>
+<script src="{% static 'sidebar-10/js/popper.js'%}"></script>
+<script src="{% static 'sidebar-10/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'sidebar-10/js/main.js'%}"></script>
+
+
+</body>
+</html>
+
 <br>
 {% include 'footer.html' %}
-
-
 {% endblock content %}
+
+
+
+
 
 
 

@@ -1,7 +1,194 @@
-{% include 'Emptynavbar2.html'%}
-{% load static%}
-{% block content %}
+
+
+
+
+{% block content%}
 <!DOCTYPE html>
+{% load static%}
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Admin Dashboard</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.jpg' %}" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  
+  
+</head>
+
+<body>
+	 
+
+
+
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
+      <div class="align-items-center d-none d-md-flex">
+        <i class="bi bi-clock"></i> Monday - Saturday, 8AM to 10PM
+      </div>
+      <div class="d-flex align-items-center">
+        <i class="bi bi-phone"></i> Call us now +91 9472843202
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <a href="{% url 'Home'%}" class="logo me-auto"><img src="{% static 'assets/img/logo1.png' %}" alt=""></a>
+      
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+			
+          <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
+
+		  <!-- <a href="#"class="appointment-btn scrollto">Doctor  Login  </a> -->
+		  <p class="appointment-btn scrollto" style="margin-top:15px;"><span class="d-none d-md-inline">Doctor </span> Login Side</p>
+
+
+			</ul>
+		  </div>
+           
+          
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i> 
+		
+      </nav>
+      <!-- .navbar -->
+	 
+    </div>
+  </header>
+  <!-- End Header -->
+<!-- Vendor JS Files -->
+<script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
+<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> -->
+</body>
+</html>
+
+<br>
+<br>
+
+
+
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+  	<title>Doctor Login page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="{% static 'sidebar-10/css/style.css'%}">
+  </head>
+  <body>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	
+	  
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="order-last" class="img" style="background-image: url(https://wishesdb.com/wp-content/uploads/2019/10/Shiva-HD-Wallpapers-1920x1080-Download-Wishesdb-1024x576.jpg);">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	        </button>
+        </div>
+        <div class="">
+		  		<h1><a href="#" class="logo">Doctor <span> Login </span></a></h1>
+	        <ul class="list-unstyled components mb-5">
+	          <li class="active">
+	            <a href="#"><span class="fa fa-home mr-3"></span> <strong>Home</strong></a>
+	          </li>
+			 
+			  {%if request.user.is_authenticated%}
+	          <li>
+              <a href="{% url 'User_Logout1'%}"><span class="fa fa-cogs mr-3"></span> Logout</a>
+	          </li>
+	          <li>
+              <a href="#"><span class="fa fa-paper-plane mr-3"></span> ChangePassword</a>
+	          </li>
+			  {%else%}
+	          <li>
+	              <a href="{% url 'SignUp'%}"><span class="fa fa-user mr-3"></span> <strong>Apply</strong></a>
+	          </li>
+	          <li>
+              <a href="{% url 'user_login'%}"><span class="fa fa-sticky-note mr-3"></span> <strong>Login</strong></a>
+	          </li>
+			  {% endif%}
+
+
+			  <li>
+				<a href="#"><span class="fa fa-user mr-3"></span> <strong>Contact</strong></a>
+			</li>
+			<li>
+				<a href="#"><span class="fa fa-user mr-3"></span><strong> About</strong></a>
+			</li>
+	        </ul>
+
+	        
+			<br>
+			<br>
+			<br>
+	        <div class="footer px-4">
+	        	
+					  <p>Designed by Manibhusan & Pankaj</p>
+					  
+				
+				  
+	        </div>
+
+	      </div>
+
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5 pt-5">
+
+
+
+		<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -10,12 +197,10 @@
 	<title>login</title>
 </head>
 <body>
-	<br>
-	<br>
-	<br>
-	<br>
+	
+	
 
-	<br>
+
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -23,17 +208,17 @@
 	
 
 	/* Coded with love by Mutiullah Samim */
-		body,
+		/* body,
 		html {
 			margin: 0;
 			padding: 0;
 			height: 100%;
 			background: url(https://images.unsplash.com/photo-1551076805-e1869033e561?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Nnx8aG9zcGl0YWx8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&w=1000&q=80) no-repeat;
 			background-size:cover;
-		}
-		.user_card {
+		} */
+		/* .user_card {
 			height: 400px;
-			width: 350px;
+			width: 65%;
 			margin-top: auto;
 			margin-bottom: auto;
 			background:rgba(63, 187, 192, 0.5);
@@ -47,7 +232,7 @@
 			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			border-radius: 5px;
 
-		}
+		} */
 		.brand_logo_container {
 			position: absolute;
 			height: 120px;
@@ -68,7 +253,7 @@
 			margin-top: 100px;
 		}
 		.login_btn {
-			width: 100%;
+			width: 30%;
 			background: #3fbbc0 !important;
 			color: white !important;
 		}
@@ -94,9 +279,18 @@
 			background-color: #37ec89 !important;
 		}
 		#mani{
-			color:black;
+			color:white;
 			margin-left: 5px;
+			margin-top: 25px;
 		}
+		.input-group mb-3{
+		background-color: white;
+
+	}
+	.btn login_btn{
+		border-radius: 1.5rem;
+      padding: 1%;
+	}
 
 
 </style>
@@ -113,49 +307,78 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Medical Appointment Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs Sign up Web Templates, 
+ Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free web designs for Nokia, Samsung, LG, SonyEricsson, Motorola web design">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- Custom Theme files -->
+<link href="{% static 'web/css/wickedpicker.css'%}" rel="stylesheet" type='text/css' media="all" />
+<link href="{% static 'web/css/style.css'%}" rel='stylesheet' type='text/css' />
+<!--fonts--> 
+<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
 </head>
 <body>
-	<h1 style="text-align:center;">WELCOME DOCTOR</h1>
+	
+	<!-- <h1 style="text-align:center;">WELCOME DOCTOR</h1> -->
+	<h1> Doctor Login </h1>
+    <div class="bg-agile">
+	<div class="book-appointment">
+		<h2>Welcome Utkarsh Hospital</h2>
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
-				<div class="d-flex justify-content-center">
+				<!-- <div class="d-flex justify-content-center">
 					<div class="brand_logo_container">
 						<img src="https://logos.co/1024/logo-of-nurse-tending-to-a-patient-in-a-circle-by-patrimonio-61906.jpg" class="brand_logo" alt="Logo">
 					</div>
-				</div>
-				<div class="d-flex justify-content-center form_container">
+				</div> -->
+				
+				<div class="col-sm-12">
 					<form method="POST" action="">
 						{%csrf_token%}
 						<div class="input-group mb-3">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-							{{form.username}}
+							
+							<p>Username*</p>
+							<input type="text" id="fname" name="uname" placeholder="Username..">
+							
 						</div>
-						<div class="input-group mb-2">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
-							{{form.password}}
+						<br>
+						<p>Password*</p>
+						
+						<div class="input-group mb-3" style="border-bottom: 2px solid #ee9f0d;">
+							
+							
+							<input type="password" id="lname" name="pwd" placeholder="Password..">
+
 						</div>
+						<br>
 						<div class="form-group">
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input" id="customControlInline">
-								<label class="custom-control-label" for="customControlInline"><strong>Remember me</strong></label>
+								<label class="custom-control-label" for="customControlInline"><strong style="color: red;">Remember me</strong></label>
 							</div>
 						</div>
-							<div class="d-flex justify-content-center mt-3 login_container">
+							<div class="d-flex justify-content-center mt-2 login_container">
 								<input class="btn login_btn" type="submit" value="Login">
+								
 				 	
 				   </div>
 					</form>
 				</div>
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						Don't have an account? <a href="{% url 'SignUp'%}" "class="ml-2" id="mani"><strong>SignUp</strong></a>
+						<p style="color:red">Don't have an account? </p>
+						
+						<a href="{% url 'SignUp'%}" "class="ml-100%;" id="mani"><strong>Apply</strong></a>
 					</div>
 					<div class="d-flex justify-content-center links">
+					
+			
 						<a href="#" id='mani'><strong>Forgot your password?</strong></a>
 					</div>
 				</div>
@@ -169,9 +392,9 @@
 
 //Query All input fields
 var form_fields = document.getElementsByTagName('input')
-form_fields[1].placeholder='Username..';
+// form_fields[1].placeholder='Username..';
 // form_fields[2].placeholder='Email..';
-form_fields[2].placeholder='Enter password...';
+// form_fields[2].placeholder='Enter password...';
 // form_fields[4].placeholder='Re-enter Password...';
 
 
@@ -180,8 +403,20 @@ form_fields[field].className += ' form-control'
 }
 </script>
 
-</body>
+
+
+         
+      </div>
+      
+		</div>
+
+    <script src="{% static 'sidebar-10/js/jquery.min.js'%}"></script>
+    <script src="{% static 'sidebar-10/js/popper.js'%}"></script>
+    <script src="{% static 'sidebar-10/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'sidebar-10/js/main.js'%}"></script>
+  </body>
 </html>
 
-	{% include 'footer.html' %}
-	{% endblock %}
+
+
+{% endblock %}

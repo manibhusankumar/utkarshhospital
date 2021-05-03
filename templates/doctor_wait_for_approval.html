@@ -1,0 +1,106 @@
+{% extends 'Emptynavbar.html'%}
+{% load static%}
+{% block content%}
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Wait for approved</title>
+
+
+  <style media="screen">
+    .jumbotron {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    .jumbotron h1 {
+      text-align: center;
+    }
+
+    .alert {
+      margin: 0px;
+    }
+
+    .btnSubmit {
+      border: none;
+      border-radius: 1.5rem;
+      padding: 2%;
+      width: 18%;
+      cursor: pointer;
+      background:red;
+      color: #fff;
+	  text-align: center;
+	  margin-left: 35%;
+	  
+    }
+  </style>
+
+</head>
+
+<body>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  <div class="bg-agile">
+    <div class="book-appointment">
+    <h2 style="color:blue;">Welcome Utkarsh Hospital</h2>
+
+  <div class="jumbotron" style="margin-top: 0px;
+    margin-bottom: 0px;">
+    <h3 style="color:red; margin-left: 35px;">Please Read Carefully Some Process For Utkarsh Hospital</h3>
+    <p class="lead">Your Account is not approved till now </p>
+     <p> Our Team is checking your profile </p>
+     <p>Confirmations Your Email Through As You Given At The Time Of Registration</p>
+     <p>You Can't Login In Until then</p>
+     <p>Soon your Account will be confirmed !!!</p>
+      <p>Regards</p>
+      <p>HospitalUtkarsh</p>
+      <h3 style="margin-left: 60%; color:#33ff00;"> Address</h3>
+	
+			<ul class="list-unstyled" style="margin-left: 60%;">
+			  <li>
+				<p>
+				  <i class="fas fa-home mr-3"></i> Yadav pur road ,Gopalganj,Bihar</p>
+			  </li>
+			  <li>
+				<p>
+				  <i class="fas fa-envelope mr-3"></i> hospitalutkarsh24x7@gmail.com</p>
+			  </li>
+			  <li>
+				<p>
+				  <i class="fas fa-phone mr-3"></i> +91 9472843202</p>
+			  </li>
+			  
+			</ul>
+
+    <hr class="my-4">
+    <p>Check Later</p>
+    <p class="lead">
+      <div>
+      <a class="btn btn-danger btn-lg" href="{% url 'Home'%}" role="button" style="margin-left: 40%;"">Go To Home</a>
+    </div>
+    </p>
+    
+  </div>
+  </div>
+  </div>
+
+  
+</body>
+
+
+</html>
+<br>
+<br>
+<br>
+{% include 'footer.html'%}
+{% endblock%}

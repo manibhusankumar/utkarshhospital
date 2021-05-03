@@ -56,24 +56,24 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <a href="#Home" class="logo me-auto"><img src="{% static 'assets/img/logo1.png' %}" alt=""></a>
+      <a href="{% url 'Home'%}" class="logo me-auto"><img src="{% static 'assets/img/logo1.png' %}" alt=""></a>
       
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
 			
-          <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
+          <li><a class="nav-link scrollto " href="{% url 'Home'%}" style="margin-right: 50px;">Home</a></li>
 
           
 
-		  <div class="dropdown">
+		  <!-- <div class="dropdown">
 			{%if request.user.is_authenticated%}
 			<li><a class="nav-link scrollto" href="{% url 'Appointment' %}">Appointment</a></li>
 			{% endif %}
 			<ul class="dropdown-menu" aria-labelledby="Profile">
 			  
 				{%if request.user.is_authenticated%}
-			  <li><a class="dropdown-item" href="{% url 'logout'%}">LogOut</a></li>
+			  <li><a class="dropdown-item" href="{% url 'Admin_logout'%}">LogOut</a></li>
 			  
 			  <li><a class="dropdown-item" href="#">ChangePassword</a></li>
 			  {% else%}
@@ -82,9 +82,10 @@
 			  {% endif%}
 
 			</ul>
-		  </div>
+		  </div> -->
            
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#">Super User</a></li> -->
+          <p class="appointment-btn scrollto" style="margin-top:15px;"><span class="d-none d-md-inline">Admin </span> Login </p>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

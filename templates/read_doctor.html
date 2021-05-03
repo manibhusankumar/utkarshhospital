@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+{% block content %}
 {% load static%}
 
 <html lang="en">
@@ -29,6 +30,7 @@
   <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet">
   <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
   <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+  <link href="{% static 'web/css/style.css'%}" rel='stylesheet' type='text/css' />
 
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
@@ -87,29 +89,23 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="{% url 'Appointment'%}" style="color:black">Make an Appointment<i style="color:black;margin-left:0px;font-size:20px" class="glyphicon glyphicon-circle-arrow-left"></i> </a></li>
+          <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
+          <li><a href="{% url 'Appointment'%}" class="appointment-btn scrollto" style="color:black">Make an Appointment<i style="color:black;margin-left:0px;font-size:20px" class="glyphicon glyphicon-circle-arrow-left"></i> </a></li>
+          <!-- <p class="appointment-btn scrollto" style="margin-top:15px;"><span class="d-none d-md-inline">Super </span> User Login Page</p> -->
 
           {%if request.user.is_staff%}
           <li><a class="nav-link scrollto " href="{% url 'Admin'%}">Admin Dashboard</a></li>
           {% endif%}
-          <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+         
+          <!-- <li><a class="nav-link scrollto" href="#about">About</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
           <!-- <li><a class="nav-link scrollto" href="#departments">Departments</a></li> -->
                    <div class="chip">
             <img src="https://utkarshkart.com/wp-content/uploads/2020/09/App-Logo-1.png" alt="Person" width="96" height="96">
             Active Doctors
           </div>
       
-		<!-- <div class="dropdown"> -->
-			
-
-
-
-			
-			
-		  <!-- </ul> -->
-		<!-- </div> -->    
+		  
           
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -129,28 +125,12 @@
 <script src="{% static 'assets/js/main.js' %}"></script>
 
 
-</body>
-</html>
-
-
-
-<br>
-<br>
-
-
-
-{% block content %}
-
-
-
-
 {% include 'doctorlist.html' %}
+
 <br>
-{% include 'About.html'%}
-
-{% include 'Services.html'%}
-
 <br>
 
 {% include 'footer.html' %}
 {% endblock %}
+</body>
+</html>

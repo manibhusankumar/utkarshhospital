@@ -120,6 +120,7 @@
 <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
 <script src="{% static 'assets/vendor/purecounter/purecounter.js' %}"></script>
 <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+<link href="{% static 'web/css/style.css'%}" rel='stylesheet' type='text/css' />
 
 
 <script src="{% static 'assets/js/main.js' %}"></script>
@@ -144,7 +145,7 @@
     a:link {
       text-decoration: none;
     }
-
+/* 
     h1 {
       text-align: center;
       background-color:wheat;
@@ -153,7 +154,7 @@
 
     .row {
       margin: 100px;
-    }
+    } */
     #m2{
       margin-left: 70px;
       
@@ -172,12 +173,12 @@
 
  <div class="table-responsive">
   <div class="panel panel-primary">
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
       <h1><strong>Nurses Information</strong></h1>
-    </div>
+    </div> -->
     
-<br>
-<br>
+
+
 
 <div class="row">
   {%for i in read%}
@@ -188,9 +189,9 @@
                 <div class="card-body">
                   <h2 style="color: rgb(238, 54, 85);" id="m2"> <span><strong><u>About Nurse</u></strong></span></h2>
                   <!-- <h6 class="card-subtitle mb-2 text-muted">Your Post</h6> -->
-                  <h4> Nurse_Id:<strong >{{i.id}} </strong></h4> 
+                  <!-- <h4> Nurse_Id:<strong >{{i.id}} </strong></h4>  -->
                   
-                  <h4> Nurse_Name :<strong >{{i.name}}</strong></h4>
+                  <h4> Nurse Name :<strong >{{i.name}}</strong></h4>
                   
                   <h4> Mobile Number :<strong>{{i.phone_number}} </strong></h4>
                   <h4> Email :<strong>{{i.email}} </strong></h4>
@@ -203,7 +204,7 @@
                   
                                     
                   <a href="{%url 'Update_Nurse' i.id%}" class="card-link btn btn-success">Update</a></h6>
-                  <a href="{%url 'Nurse_Delate' i.id%}" class="card-link btn btn-warning">Delate</a></h6>
+                  <a href="{%url 'Nurse_Delate' i.id%}" class="card-link btn btn-danger">Delate</a></h6>
                   
                 </div>
               </div>

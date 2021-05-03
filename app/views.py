@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect,HttpResponseRedirect
+from django.shortcuts import render,redirect,HttpResponseRedirect,reverse
 from django.http import HttpResponse
 from app.models import appointment
 from django.contrib.auth.forms import AuthenticationForm
@@ -9,17 +9,169 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from app.forms import AppointmentForm
-from . forms import SignUpForm
+# from . forms import SignUpForm
 from django.conf import settings
 from app.forms import Add_DoctorForm
 from app.models import Admin_Addinfo
 from .models import Approved
+from .models import Approve_Doctor
 from . forms import *
+from django.contrib.auth.models import User
+from datetime import date
+from datetime import datetime
+from .import forms,models
+from django.contrib.auth.models import Group
+
+
+
+
+
+
+###
 
 
 # Create your views here.
 def Home(request):
     return render(request,'base.html')
+
+## doctor 
+def doctor_signup_view(request):
+    userForm=forms.DoctorUserForm()
+    doctorForm=forms.DoctorForm()
+    mydict={'userForm':userForm,'doctorForm':doctorForm}
+    if request.method=='POST':
+        userForm=forms.DoctorUserForm(request.POST)
+        doctorForm=forms.DoctorForm(request.POST,request.FILES)
+        if userForm.is_valid() and doctorForm.is_valid():
+            user=userForm.save()
+            user.set_password(user.password)
+            user.save()
+            doctor=doctorForm.save(commit=False)
+            doctor.user=user
+            doctor=doctor.save()
+            my_doctor_group = Group.objects.get_or_create(name='DOCTOR')
+            my_doctor_group[0].user_set.add(user)
+        return redirect('Doctor_Wait')
+    return render(request,'signup.html',context=mydict)
+
+
+# update doctor details
+def update_doctor_view(request,pk):
+    doctor=models.Doctor.objects.get(id=pk)
+    user=models.User.objects.get(id=doctor.user_id)
+
+    userForm=forms.DoctorUserForm(instance=user)
+    doctorForm=forms.DoctorForm(request.FILES,instance=doctor)
+    mydict={'userForm':userForm,'doctorForm':doctorForm}
+    if request.method=='POST':
+        userForm=forms.DoctorUserForm(request.POST,instance=user)
+        doctorForm=forms.DoctorForm(request.POST,request.FILES,instance=doctor)
+        if userForm.is_valid() and doctorForm.is_valid():
+            user=userForm.save()
+            user.set_password(user.password)
+            user.save()
+            doctor=doctorForm.save(commit=False)
+            doctor.save()
+            return redirect('Confirm_Doctor')
+    return render(request,'admin_update_doctor.html',context=mydict)
+
+
+#### Approve_doctor 
+def Approve_Doctorlist(request, id):
+    a = [Doctorlist.objects.get(id=id).email]
+
+    # Copying row from company table to approved table
+    approved_row = Doctorlist.objects.all().filter(id=id)
+    approved_table_new_row = Approve_Doctor(
+        user=approved_row.first().user,
+        profile_pic=approved_row.first().profile_pic,
+        resume=approved_row.first().resume,
+        address=approved_row.first().address,
+        mobile=approved_row.first().mobile,
+        gender=approved_row.first().gender,
+        email=approved_row.first().email,
+        department=approved_row.first().department,
+        degree=approved_row.first().degree,
+        get_name=approved_row.first().user.first_name,
+       
+
+    )
+    approved_table_new_row.save()
+
+    # sending email when approved
+    send_mail(
+       subject="greetings",
+       message=" Your Application has been excepted by Hospital Utkash and inform futher process for interview",
+       from_email=settings.EMAIL_HOST_USER,
+       recipient_list=a,
+       fail_silently=False,
+    )
+
+
+
+
+############ Approve_doctor with out filter
+# def Send_Email(request,id):
+#     a=[Doctorlist.objects.get(id=id).email]
+
+#     send_mail(
+#         subject = "greetings",
+#         message = "Your Application has been excepted by Hospital Utkash and inform futher process for interview",
+#         from_email=settings.EMAIL_HOST_USER,
+#         recipient_list=a,
+        
+#         fail_silently=False
+
+#     )
+#     # a = recipient_list
+#     # for i in recipient_list:
+#     #     print(i)
+
+        
+#     # print(recipient_list)
+
+#     return render(request,"Read_Apply.html")
+
+####
+
+def Send_Email(request):
+	if request.method == 'POST':
+		to = request.POST.get('toemail')
+		name= request.POST.get('name')
+		content = request.POST.get('content')
+        
+		# print(to, content)
+		# send_mail(
+		# 	#subject
+		# 	"testing",
+		# 	#message
+		# 	content,
+		# 	#from email
+		# 	settings.EMAIL_HOST_USER,
+		# 	#rec list
+		# 	[to]
+		# )
+		html_content = render_to_string("email_template.html",{'title':'test email','content':content})
+		text_content = strip_tags(html_content)
+
+		email=EmailMultiAlternatives("Your CV is Shortlisted in Hospital Utkarsh",text_content,settings.EMAIL_HOST_USER,[to])
+		email.attach_alternative(html_content,'text/html')
+		email.send()
+
+
+
+		return render(request,'email.html',{"title":'send an email'})
+        
+
+	else:
+		return render(request,'email.html',{"title":'send an email'})
+
+
+
+def DoctorApproval(request):
+    a = Approve_Doctor.objects.all()
+    return render(request,"applyconfirmation.html",{"a":a})
+
 
 
 	
@@ -41,60 +193,140 @@ def Appointment(request):
 def Admin(request):
 	return render(request,'verticalnavbar.html')
 
+# def Admin_login(request):
+#     if request.method =="POST":
+#         form =AuthenticationForm(request=request,data=request.POST)
+#         if form.is_valid():
+#             uname =form.cleaned_data["username"]
+#             upass =form.cleaned_data["password"]
+#             user = authenticate(username=uname,password=upass)
+#             messages.success(request,' successfully Login!!')
+#             if user is not None:
+#                 login(request,user)
+#                 return redirect('Admin')
+#     else:							
+#         form=AuthenticationForm()
+#     return render(request,'login.html',{'form':form})
+
 def Admin_login(request):
-    if request.method =="POST":
-        form =AuthenticationForm(request=request,data=request.POST)
-        if form.is_valid():
-            uname =form.cleaned_data["username"]
-            upass =form.cleaned_data["password"]
-            user = authenticate(username=uname,password=upass)
-            messages.success(request,' successfully Login!!')
-            if user is not None:
-                login(request,user)
-                return redirect('Admin')
-    else:							
-        form=AuthenticationForm()
-    return render(request,'login.html',{'form':form})
+    error = ""
+    if request.method == "POST":
+        u = request.POST['uname']
+        p = request.POST['pwd']
+        user = authenticate(username=u, password=p)
+        try:
+            if user.is_staff:
+                login(request, user)
+                error = "yes"
+                return redirect("Admin")
+            else:
+                error = "not"
+        except:
+            error="not"
+    d = {'error': error}
+    return render(request,'login.html',d)
 
 
-def user_login(request):
-    if request.method =="POST":
-        form =AuthenticationForm(request=request,data=request.POST)
-        if form.is_valid():
-            uname =form.cleaned_data["username"]
-            upass =form.cleaned_data["password"]
-            user = authenticate(username=uname,password=upass)
-            messages.success(request,' successfully Login!!')
-            if user is not None:
-                login(request,user)
-                return redirect('Appointment')
-    else:							
-        form=AuthenticationForm()
-    return render(request,'Userlogin.html',{'form':form})
+# def user_login(request):
+#     if request.method =="POST":
+#         form =AuthenticationForm(request=request,data=request.POST)
+#         if form.is_valid():
+#             uname =form.cleaned_data["username"]
+#             upass =form.cleaned_data["password"]
+#             user = authenticate(username=uname,password=upass)
+#             messages.success(request,' successfully Login!!')
+#             if user is not None:
+#                 login(request,user)
+#                 return redirect('Appointment')
+#     else:							
+#         form=AuthenticationForm()
+#     return render(request,'Userlogin.html',{'form':form})
 
 
-def SignUp(request):
-    if request.method=="POST":
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            user=form.cleaned_data.get('username')
-            messages.success(request,'Account was created for'+ user)
-            return redirect("user_login")
-    else:
-        form = SignUpForm()
-    return render(request,"signup.html",{"form":form})
+####
+def User_Login(request):
+    error = ""
+    if request.method == "POST":
+        u = request.POST['uname']
+        p = request.POST['pwd']
+        user = authenticate(username=u, password=p)
+        try:
+            if not user.is_staff:
+                login(request, user)
+                error ="yes"
+                return redirect("Confirm_Doctor")
+                
+            else:
+                error = "not"
+        except:
+            error="not"
+    d = {'error': error}
+    return render(request,'Userlogin.html',d)
 
 
-def Logout_user(request):
-	logout(request)
-	return redirect("Home")
+def Doctor_Wait(request):
+    return render(request,'doctor_wait_for_approval.html') 
+
+
+# def Logout_user(request):
+
+    # if not request.user.is_staff:
+    # return redirect('Home')
+
+    # logout(request)
+    # return redirect('SignUp')  
+
+# def Logout_user(request):
+#     if not request.user.is_staff:
+#         return redirect('Admin')
+
+#     logout(request)
+#     return redirect('SignUp')  
+
+# def Logout_user(request):
+#     if not request.user.is_staff:
+#         return redirect('Home')
+#     logout(request)
+#     return redirect('Home')     
+
+def User_Logout1(request):
+    logout(request)
+    # messages.success(request,'successfully Logout your account!!')
+    return redirect('/')
 
 
 
-def Admin_logout(request):
-	logout(request)
-	return redirect("Admin")
+# def SignUp(request):
+#     if request.method=="POST":
+#         form = SignUpForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             user=form.cleaned_data.get('username')
+#             messages.success(request,'Account was created for'+ user)
+#             return redirect("user_login")
+#     else:
+#         form = SignUpForm()
+#     return render(request,"signup.html",{"form":form})
+
+
+# def Logout_user(request):
+# 	logout(request)
+# 	return redirect("Home")
+
+
+
+# def Admin_logout(request):
+#     logout(request)
+#     return redirect('Admin_logout')     
+
+    
+def Logout(request):
+    if not request.user.is_staff:
+        return redirect('Home')
+    logout(request)
+    return redirect('Home')    
+    
+	
 
 def Admin_base(request):
 	return render(request,'admin_base.html')
@@ -126,26 +358,26 @@ def Delete(request,id):
     return redirect("Actions_Appointment")
 
 
-def Send_Email(request,id):
-    a=[appointment.objects.get(id=id).email]
+# def Send_Email(request,id):
+#     a=[appointment.objects.get(id=id).email]
 
-    send_mail(
-        subject = "greetings",
-        message = "hello your appoint has been confirmed",
-        from_email=settings.EMAIL_HOST_USER,
-        recipient_list=a,
+#     send_mail(
+#         subject = "greetings",
+#         message = "hello your appoint has been confirmed",
+#         from_email=settings.EMAIL_HOST_USER,
+#         recipient_list=a,
         
-        fail_silently=False
+#         fail_silently=False
 
-    )
-    # a = recipient_list
-    # for i in recipient_list:
-    #     print(i)
+#     )
+#     # a = recipient_list
+#     # for i in recipient_list:
+#     #     print(i)
 
         
-    # print(recipient_list)
+#     # print(recipient_list)
 
-    return render(request,"actions.html")
+#     return render(request,"actions.html")
 
 
 
@@ -220,12 +452,13 @@ def approve(request, id):
     approved_row = appointment.objects.all().filter(id=id)
     approved_table_new_row = Approved(
         patient_name=approved_row.first().patient_name,
-        phone_number=approved_row.first().phone_number,
+        mobile=approved_row.first().mobile,
         email=approved_row.first().email,
         date=approved_row.first().date,
         gender=approved_row.first().gender,
         department=approved_row.first().department,
         doctor=approved_row.first().doctor,
+        select=approved_row.first().select,
         message=approved_row.first().message,
 
     )
@@ -403,5 +636,28 @@ def Update_Room_Service(request, pk):
     return render(request,"Update_RoomService.html",{"update":update})    
 
 
+# Doctor dashboard
+def DashboardDoctor(request):
+    return render(request,'DashboardDoctor.html') 
+
+
+
+def Read_ApplyDoctor(request):
+    read=Doctorlist.objects.all()
+    return render(request,"Read_Apply.html",{"read":read})
+
+# def Read_ApplyDoctor(request):
+#     read=User.objects.all()
+#     return render(request,"Read_Apply.html",{"read":read})
+
+def Delete_ApplyDoctor(request,id):
+    del_t=Doctorlist.objects.get(id=id)    
+    del_t.delete()
+
+    return redirect("Read_ApplyDoctor")
+
+
+def Confirm_Doctor(request):
+    return render(request,'Confirm_Doctor.html') 
 
 

@@ -90,9 +90,11 @@
           <li><a class="nav-link scrollto " href="{% url 'Home'%}">Home</a></li>
 
           <li><a class="nav-link scrollto" href="{% url 'send-feedback'%}">Send Feedback</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#departments">Departments</a></li>
-          <li><a class="nav-link scrollto" href="{% url 'Read_doctors'%}">Doctor</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#services">Services</a></li> -->
+          <!-- <li><a class="nav-link scrollto" href="#departments">Departments</a></li> -->
+        <!-- <p>  <a class="appointment-btn scrollto" href="{% url 'Read_doctors'%}"> Views Active Doctor's</a></p> -->
+        <li>   <a href="{% url 'Read_doctors'%}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Views Active Doctor's <br></a> </li>
+
           <div class="chip">
             <img src="https://utkarshkart.com/wp-content/uploads/2020/09/App-Logo-1.png" alt="Person" width="96" height="96">
             Patient

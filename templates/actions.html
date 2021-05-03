@@ -163,87 +163,84 @@
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link href="{% static 'web/css/style.css'%}" rel='stylesheet' type='text/css' />
 
   <style media="screen">
     a:link {
       text-decoration: none;
     }
 
-    h1 {
+    /* h2 {
       text-align: center;
-      background-color:wheat;
+      background-color:black;
+      color:white;
 
     }
 
     .row {
       margin: 100px;
-    }
+    } */
   </style>
-  {% if messages %}
+  <!-- {% if messages %}
   {% for message in messages %}
   {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
   
   {% endfor %}
   
-  {% endif %}
+  {% endif %} -->
 </head>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 
 <div class="table-responsive">
-  <div class="panel panel-primary">
-    <div class="container-fluid">
-      <h1><strong>Approve/Reject/Delate Appointments</strong></h1>
-    </div>
-    <table class="table table-bordered">
+	<!-- <div class="book-appointment"> -->
+    <div class="container-fluid alert bg-dark text-white">
+	<h2 style="margin-top:80px; text-align:center;">Approve/Cancel/Delete Appointments</h2>
+</div>
+<!-- </div> -->
+    <!-- <table class="table table-bordered" style="background-color:white;"> -->
+      <table class="table table-bordered" style="background-color:white;">
       <thead>
-        <tr class="table-success">
+        <tr class="container-fluid alert bg-dark text-white">
 
-          <th><h3><strong>Id</strong></h3></th>
-          <th><h3><strong>Patient Name</strong> </h3></th>
-          <th><h3><strong>Phone Name</strong></h3></th>
-          <th><h3><strong>Email Address</strong></h3></th>
-          <th><h3><strong>Address</strong></h3></th>
-          <th><h3><strong>Date</strong></h3></th>
-          <th><h3><strong>Gender</strong</h3></th>
-          <th><h3><strong>Department<strong></h3></th>
-          <th><h3><strong>Doctor<strong></h3></th>
-          <th><h3><strong>Message<strong></h3></th>
+          <th><h5><strong>Id</strong></h5></th>
+          <th><h5><strong>Patient Name</strong> </h5></th>
+          <th><h5><strong>Phone Name</strong></h5></th>
+          <th><h5><strong>Email Address</strong></h5></th>
+          <th><h5><strong>Address</strong></h5></th>
+          <th><h5><strong>Date</strong></h5></th>
+          <th><h5><strong>Gender</strong</h5></th>
+          <th><h5><strong>Department<strong></h5></th>
+          <th><h5><strong>Doctor<strong></h5></th>
+          <th><h5><strong>Appointment Status<strong></h5></th>
+          <th><h5><strong>Message<strong></h5></th>
 
-          <th><h3><strong>Approve<strong></h3></th>
+          <th><h5><strong>Approve<strong></h5></th>
           
-          <th><h3><strong>Delete</strong></hh3></th>
-          <th><h3><strong>Reject<strong></h3></th> 
+          <th><h5><strong>Delete</strong></h5></th>
+          <th><h5><strong>Reject<strong></h5></th> 
         
 
         </tr>
       </thead>
 
 {%for i in read%}
-      <tr>
-     <td> <h4> <strong>{{i.id}} </strong></h4></td>
-     <td><h4> <strong> {{i.patient_name}} </strong></h4></td>
-    <td><h4><strong>{{i.phone_number}}</strong></h4></td>
-    <td> <h4><strong>{{i.email}} </strong></h4></td>
-    <td> <h4><strong>{{i.address}} </strong></h4></td>
-    <td><h4><strong>{{i.date}}</strong></h4></td>
+      <tr class="container-fluid alert bg-dark text-white">
+     <td> <h6> <strong>{{i.id}} </strong></h6></td>
+     <td><h6> <strong> {{i.patient_name}} </strong></h6></td>
+    <td><h6><strong>{{i.mobile}}</strong></h6></td>
+    <td> <h6><strong>{{i.email}} </strong></h6></td>
+    <td> <h6><strong>{{i.address}} </strong></h6></td>
+    <td><h6><strong>{{i.date}}</strong></h6></td>
 
-    <td><h4><strong>{{i.gender}}</strong></h4></td>
-    <td><h4><strong>{{i.department}}</strong></h4></td>
-    <td><h4><strong>{{i.doctor}}</strong></h4></td>
+    <td><h6><strong>{{i.gender}}</strong></h6></td>
+    <td><h6><strong>{{i.department}}</strong></h6></td>
+    <td><h6><strong>{{i.doctor}}</strong></h6></td>
+    <td><h6><strong>{{i.select}}</strong></h6></td>
 
-    <td><h4><strong>{{i.message}}</strong></h4></td>
-    <!-- <td><a href="{%url 'email' i.id%}" class="btn btn-info">Aprrove</a></td> -->
+    <td><h6><strong>{{i.message}}</strong></h6></td>
+  
    
-  <!-- <td> <h4> <a href="{%url 'delete' i.id%}" class="card-link btn btn-danger"> <strong>Delete</stronga></h4></td> -->
+  
    
     <td><a class="btn btn-success btn-block" href="{%url 'approve' i.id%}">Approve</a></td>
     <td><a class="btn btn-danger btn-block" href="{%url 'delete' i.id%}">Delete</a></td>
@@ -255,10 +252,6 @@
 
 </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 {% include 'footer.html' %}
 {% endblock %}

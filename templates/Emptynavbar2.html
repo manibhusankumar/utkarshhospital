@@ -32,31 +32,31 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
   <style>
-	#mani{
+	/* #mani{
 		margin-left: 100px;
-	}
-  .maniG{
+	} */
+  /* .maniG{
   display: inline-block;
   padding: 0 25px;
-  height: 50px;
-  font-size: 10px;
-  line-height: 50px;
-  border-radius: 25px;
-  margin-left: 60px;
+  height: 20px;
+  font-size: 8px;
+  line-height: 20px;
+  border-radius: 10px;
+  margin-left: 0px;
   background-color:rgba(63, 187, 192, 0.5);
-}
-.maniG img {
+} */
+/* .maniG img {
   float: left;
   margin: 0 10px 0 -25px;
-  height: 50px;
-  width: 50px;
+  height: 10px;
+  width: 20px;
   border-radius: 50%;
-}
-#logo{
-  margin-right:5px;
+} */
+/* #logo{ */
+  /* margin-right:5px; */
   /* margin-top: 10px; */
   
-}
+/* } */
 </style>
   
 </head>
@@ -88,22 +88,29 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          {%if request.user.is_authenticated%}
-          <li><a class="nav-link scrollto " href="{% url 'Add_Room_Service'%}"> Add Room Services</a></li>
-
-          <li><a class="nav-link scrollto" href="{% url 'Read_Room_Service'%}">View Room Services</a></li>
+          {%if request.user.is_staff%}
+         
+          <a class="nav-link scrollto" href="{% url 'Read_ApplyDoctor'%}"> Views Apply Doctor List</a>
+          <a href="{% url 'Actions_Appointment'%}"> Views Pending Appointments</a>
+          <a href="{% url 'Ensure'%}">ENSURE</a>
+          <a class="nav-link scrollto " href="{% url 'Add_Room_Service'%}"> Add Room Services</a>
+          <a class="nav-link scrollto" href="{% url 'Read_Room_Service'%}">Read Room Services</a>
+          
           <!-- <li><a class="nav-link scrollto" href="#">Services</a></li> -->
           <!-- <li><a class="nav-link scrollto" href="#departments"> Departments</a></li> -->
 		  <!-- <li><a class="nav-link scrollto" href="#contact">contact</a></li> -->
       
-      <li><a href="{% url 'Actions_Appointment'%}">Pending Appointments</a></li>
-	  <li><a href="{% url 'Ensure'%}">ENSURE</a></li>
-    <li><a href="{% url 'view-feedback'%}">View Feedback</a></li>
-    <div class="maniG">
-      <img src="https://previews.123rf.com/images/alexwhite/alexwhite1212/alexwhite121201118/16809932-logout-blue-glossy-icon-on-white-background.jpg" alt="Person" width="92" height="92">
-      <a href="{% url 'Admin_logout'%}" id="logo"><p>LOGOUT</p></a>
+     
+	 
+    <a href="{% url 'view-feedback'%}">View Feedback</a>
+    <!-- <div class="maniG"> -->
+      <!-- <img src="https://previews.123rf.com/images/alexwhite/alexwhite1212/alexwhite121201118/16809932-logout-blue-glossy-icon-on-white-background.jpg" alt="Person" width="92" height="92"> -->
+     
+    <!-- </div> -->
+     
+    <p> <a href="{% url 'Admin_logout'%}" >LOGOUT</a></p> 
+     
 
-    </div>
 	
 			{% endif%}
           
